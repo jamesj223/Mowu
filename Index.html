@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="has-background-grey-lighter" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goldfish</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <section class="section">
+      <div class="columns is-mobile is-centered ">
+        <!-- Column 1 - Left Paddng -->
+        <div class="column padding-left"></div>
+        <!-- Column 2 - Counters -->
+        <div class="column is-narrow counters">
+          <!-- Turn Counter -->
+          <div class="box">
+            <div class="columns is-mobile">
+              <div class="column is-8">
+                <h1 class="title has-text-centered">Turn</h1>
+                <hr>
+                <h2 class="subtitle has-text-centered"><span class="turnCounter">0</span></h2>
+              </div>
+              <div class="column is-3">
+                <button class="button is-success is-medium my-1" onclick="changeTurnCounter(1)"><span><i class="fa fa-plus"></i></span></button>
+                <button class="button is-danger is-medium my-1" onclick="changeTurnCounter(-1)"><span><i class="fa fa-minus"></i></span></button>
+              </div>
+            </div>  
+          </div>
+          <!-- Life Tracker-->
+          <div class="box">
+            <div class="columns is-mobile">
+              <div class="column is-8">
+                <h1 class="title has-text-centered">Life</h1>
+                <hr>
+                <h2 class="subtitle has-text-centered"><span class="lifeTracker">40</span><span class="delta is-hidden">0</span></h2>
+              </div>
+              <div class="column is-3">
+                <button class="button is-success is-medium my-1" onclick="changeLifeTracker(1)"><span><i class="fa fa-plus"></i></span></button>
+                <button class="button is-danger is-medium my-1" onclick="changeLifeTracker(-1)"><span><i class="fa fa-minus"></i></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Column 3 - Events -->
+        <div class="column events is-hidden">
+        </div>
+        <!-- Column 4 - Right Padding -->
+        <div class="column padding-right"></div>
+      </div>
+    </section>
+    <script src="js/counter.js"></script>
+  </body>
+</html>
