@@ -2,7 +2,7 @@
 
 ## Overview
 
-A Magic: The Gathering foldfishing web app. Super basic (for now).
+A Magic: The Gathering goldfishing web app. Super basic (for now).
 
 The purpose of this web app is to goldfish (playtest) MTG decks. Track turn count and life total. Play out your turns and see how long it takes you to deal 40 damage to an opponent. Future version might add optional events, to make it slightly more difficult and interactive. Board wipes every X turns, that kind of thing.
 
