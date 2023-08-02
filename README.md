@@ -2,10 +2,11 @@
 
 ## Overview
 
-A MTG Goldfishing Web App. Tracks turn count and life total.
-Super basic (for now).
+A Magic: The Gathering foldfishing web app. Super basic (for now).
 
-## V1
+The purpose of this web app is to goldfish (playtest) MTG decks. Track turn count and life total. Play out your turns and see how long it takes you to deal 40 damage to an opponent. Future version might add optional events, to make it slightly more difficult and interactive. Board wipes every X turns, that kind of thing.
+
+## Aims for V1
 - [x] Basic tracking for life and turns
 - [x] Basic Keyboard controls
 - [x] On screen +/- buttons
@@ -13,7 +14,8 @@ Super basic (for now).
 - [ ] Basic css/themeing
     - [ ] Bootstrap? or something else
     - [ ] Bulma seems like a cool option
-- [ ] Github markdown thing
+- [ ] Github markdown readme thing
+- [ ] Auto deploy to netlify or similar
 
 ## Roadmap
 - [ ] Menu (and navbar?)
@@ -25,12 +27,14 @@ Super basic (for now).
             - [ ] Easy/medium/hard/custom?
     - [ ] Resume previous game
     - [ ] View Stats
-- [ ] Confirm before exiting existing game in progress
+- [ ] Confirm before exiting/restarting when game in progress
 - [ ] Progressive key down repeat rate (start slowly, then progressively get faster)
 - [ ] Life delta thing that fades over time
 - [ ] Game over check?
-    - [ ] alert() window with new game button, and dismiss/continue/undo 
-- [ ] Local storage? Or cloud/accounts?
+    - [ ] alert/pop up window with new game button, and dismiss/continue/undo 
+- [ ] Local storage (IndexedDB?)
+    - [ ] Or server side
+    - [ ] Or cloud/accounts?
 - [ ] Store/resume in progress game
 - [ ] Store deck name/list
     - [ ] Select from dropdown for previously used
@@ -38,6 +42,7 @@ Super basic (for now).
 - [ ] Store game results (deck name, number of turns, difficulty etc)
 - [ ] Display stats for stored decks
     - [ ] Easy/medium/hard/custom
+    - [ ] Export (csv?)
 - [ ] "Events"
     - [ ] Board wipe (creatures, artifacts?)
         - [ ] Pick a random real board wipe card?
