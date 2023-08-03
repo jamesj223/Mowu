@@ -10,7 +10,7 @@ The purpose of this web app is to goldfish (playtest) MTG decks. Track turn coun
 - [x] Basic tracking for life and turns
 - [x] Basic Keyboard controls
 - [x] On screen +/- buttons
-- [ ] Restart Button/keyboard
+- [x] Restart Button/keyboard
 - [ ] Basic css/themeing
     - [ ] Bootstrap? or something else
     - [ ] Bulma seems like a cool option
@@ -51,6 +51,9 @@ The purpose of this web app is to goldfish (playtest) MTG decks. Track turn coun
     - [ ] Big creature 20/20 w/ haste, vigilance
         - [ ] Random selection of keywords?
     - [ ] 1 to 5 1/1 Deathtouch blockers (w/ defender?)
+    - [ ] 1 to 5 1/1 Infect Attackers
+    - [ ] Some of these events might require separate trackers for player and opponent health. Just something to think about
+    - [ ] Sub menu to toggle on/off specific events?
 - [ ] Event UI
     - [ ] Card for each event? With a dismiss button/hotkey
 - [ ] Custom Art Cards for each event?

@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
+    <!-- Main Section-->
     <section class="section">
       <div class="columns is-mobile is-centered ">
         <!-- Column 1 - Left Paddng -->
         <div class="column padding-left"></div>
         <!-- Column 2 - Counters -->
         <div class="column is-narrow counters">
+          <div class="box">
+            <button class="button is-info is-fullwidth" onclick="openConfirmModal()">Restart</button>
+          </div>
           <!-- Turn Counter -->
           <div class="box">
             <div class="columns is-mobile">
@@ -53,6 +57,73 @@
         <div class="column padding-right"></div>
       </div>
     </section>
+    <!-- New Game Menu Modal-->
+    <div class="modal newGameMenuModal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <h1>UNDER CONSTRUCTION: New Game Menu</h1>
+          <hr>
+          <!-- Starting Health -->
+          <div class="field startingHealthField">
+            <label class="label startingHealthLabel">Starting Health</label>
+            <div class="control startingHealthControl">
+              <input class="input startingHealthInput" type="number" value="40" style="width:10%">
+            </div>
+          </div>
+          <!-- Deck Name -->
+          <div class="field deckNameField">
+            <label class="label deckNameLabel">Deck</label>
+            <div class="control deckNameControl">
+              <input class="input deckNameInput" type="text" list="deckName" placeholder="Select from previously used decks or enter new deck name">
+              <datalist class="datalist deckNameDataList" id="deckName">
+                <option>These</option>
+                <option>Should</option>
+                <option>Get</option>
+                <option>Automatically</option>
+                <option>Replaced</option>
+              </datalist>
+            </div>
+          </div>
+          <!-- Difficulty -->
+          <div class="field difficultyField">
+            <label class="label difficultyLabel">Difficulty</label>
+            <div class="control difficultyControl">
+              <div class="buttons difficulty has-addons">
+                <button class="button difficultyEasy is-selected is-info" onclick="difficultyButtonClick('.difficultyEasy',0)" >Easy</button>
+                <button class="button difficultyMedium" onclick="difficultyButtonClick('.difficultyMedium',7)">Medium</button>
+                <button class="button difficultyHard" onclick="difficultyButtonClick('.difficultyHard',5)">Hard</button>
+                <button class="button difficultyCustom" onclick="difficultyButtonClick('.difficultyCustom',0)">Custom</button>
+              </div>
+            </div>
+          </div>
+          <!-- Events -->
+          <div class="field">
+            <label class="label eventsLabel">Random events every <span>X</span> turns</label>
+            <div class="control">
+              <input class="input difficultyInput" type="number" value="0" style="width:10%" disabled>
+            </div>
+          </div>
+          <!-- End of Fields -->
+        </div>
+      </div>
+      <!--button class="modal-close is-large" aria-label="close"></button-->
+    </div>
+    <!-- Confirm Restart Modal-->
+    <div class="modal confirmRestartModal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <h1>End the current game and start a new one?</h1>
+          <hr>
+          <button class="button is-half is-danger" onclick="confirmNewGame(1)">Restart</button>
+          <button class="button is-half is-info" onclick="confirmNewGame(0)">Cancel</button>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" onclick="confirmNewGame(0)"></button>
+    </div>
+    <!-- Scripts -->
+    <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/counter.js"></script>
   </body>
 </html>
