@@ -11,11 +11,8 @@ The purpose of this web app is to goldfish (playtest) MTG decks. Track turn coun
 - [x] Basic Keyboard controls
 - [x] On screen +/- buttons
 - [x] Restart Button/keyboard
-- [ ] Basic css/themeing
-    - [ ] Bootstrap? or something else
-    - [ ] Bulma seems like a cool option
-- [ ] Github markdown readme thing
-- [ ] Auto deploy to netlify or similar
+- [x] Bulma CSS/themeing
+- [x] Auto deploy release branch to netlify or similar
 
 ## Roadmap
 - [ ] Menu (and navbar?)
