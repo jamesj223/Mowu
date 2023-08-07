@@ -4,7 +4,7 @@
 
 Mowu is a Magic: The Gathering goldfishing web app. Super basic (for now). 
 
-The purpose of this web app is to goldfish (playtest) MTG decks. Track turn count and life total. Play out your turns and see how long it takes you to deal 40 damage to an opponent. Future version might add optional events, to make it slightly more difficult and interactive. Board wipes every X turns, that kind of thing.
+The purpose of this web app is to goldfish (playtest) MTG decks. Track turn count and life total. Play out your turns and see how long it takes you to deal 40 damage to an opponent. Eventually, I'd like to add optional events, to make it slightly more difficult and interactive. Board wipes every X turns, that kind of thing.
 
 Deployed (here)[https://mowu-mtg.netlify.app/]
 
@@ -26,17 +26,26 @@ Current release contains the following features:
 - Auto deploy releases to Netlify
 
 
-## Roadmap
+## Future Versions
+
+### Roadmap
+
+- The main feature planned for V2 will be persistent storage.
+- The main feature planned for V3 will be events.
+
+### Full feature backlog
+
 - [ ] Menu (and navbar?)
-    - [ ] New game
-        - [ ] Starting health
+    - [x] New game
+        - [x] Starting health
         - [ ] Deck name/list
         - [ ] Events on/off
         - [ ] Difficulty (events every X turns)
             - [ ] Easy/medium/hard/custom?
     - [ ] Resume previous game
     - [ ] View Stats
-- [ ] Confirm before exiting/restarting when game in progress
+- [x] Confirm before restarting when game in progress
+    - [ ] Same but for exiting/closing the tab? Or too annoying
 - [ ] Progressive key down repeat rate (start slowly, then progressively get faster)
 - [ ] Life delta thing that fades over time
 - [ ] Game over check?
@@ -47,7 +56,7 @@ Current release contains the following features:
 - [ ] Store/resume in progress game
 - [ ] Store deck name/list
     - [ ] Select from dropdown for previously used
-    - [ ] Pre Populate with most recently used? Maybe only for multiple games in the same session?
+    - [x] Pre Populate with most recently used? Maybe only for multiple games in the same session?
     - [ ] or add new
 - [ ] Store game results (deck name, number of turns, difficulty etc)
 - [ ] Display stats for stored decks
