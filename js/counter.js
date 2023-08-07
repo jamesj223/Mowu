@@ -5,7 +5,7 @@
 // Config
 
 var versionNumber = 'v1.1';
-var versionString = "MagicGoldFish " + versionNumber;
+var versionString = "Mowu " + versionNumber;
 
 var startingLifeTotal = 40;
 

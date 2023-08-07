@@ -1,12 +1,10 @@
-# MagicGoldFish (MGF)
+# Mowu
 
 ## Overview
 
-A Magic: The Gathering goldfishing web app. Super basic (for now). 
+Mowu is a Magic: The Gathering goldfishing web app. Super basic (for now). 
 
 The purpose of this web app is to goldfish (playtest) MTG decks. Track turn count and life total. Play out your turns and see how long it takes you to deal 40 damage to an opponent. Future version might add optional events, to make it slightly more difficult and interactive. Board wipes every X turns, that kind of thing.
-
-The name is a placeholder until I come up with something better.
 
 ## Keyboard Controls
 
@@ -27,10 +25,6 @@ Current release contains the following features:
 
 
 ## Roadmap
-- [ ] Come up with a better name - MagicGoldFish is too close to MTGGoldfish
-    - [ ] Wilson - Way too many things called Wilson already
-    - [ ] Mowu? Less common and more magic relevant/specific
-- [ ] Favicon
 - [ ] Menu (and navbar?)
     - [ ] New game
         - [ ] Starting health
