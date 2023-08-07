@@ -46,6 +46,7 @@ Release contains the following features:
 - [ ] Store/resume in progress game
 - [ ] Store deck name/list
     - [ ] Select from dropdown for previously used
+    - [ ] Pre Populate with most recently used? Maybe only for multiple games in the same session?
     - [ ] or add new
 - [ ] Store game results (deck name, number of turns, difficulty etc)
 - [ ] Display stats for stored decks

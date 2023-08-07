@@ -3,18 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MagicGoldFish v1.0</title>
+    <title>MagicGoldFish - versionString placeholder</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-    <!-- Nav Bar -->
+    <!-- NAV BAR -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <h1 class="navbar-item" href="#">MagicGoldFish v1.0</h1>
+        <h1 class="navbar-item">MagicGoldFish - versionString placeholder</h1>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="#" onclick="openModal('.helpModal');return false;">Press ? for help</a>
       </div>
     </nav> 
-    <!-- Main Section-->
+    <!-- END OF NAV BAR -->
+    <!-- MAIN SECTION -->
     <section class="section">
       <div class="columns is-mobile is-centered ">
         <!-- Column 1 - Left Paddng -->
@@ -22,7 +26,7 @@
         <!-- Column 2 - Counters -->
         <div class="column is-narrow counters">
           <div class="box">
-            <button class="button is-info is-fullwidth" onclick="openConfirmModal()">Restart</button>
+            <button class="button is-info is-fullwidth" onclick="openModal('.restartGameMenuModal')">Restart</button>
           </div>
           <!-- Turn Counter -->
           <div class="box">
@@ -63,12 +67,14 @@
         <div class="column padding-right"></div>
       </div>
     </section>
+    <!-- END OF MAIN SECTION-->
+    <!-- MODALS -->
     <!-- New Game Menu Modal-->
     <div class="modal newGameMenuModal">
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="box">
-          <h1>UNDER CONSTRUCTION: New Game Menu</h1>
+          <h1 class="title">UNDER CONSTRUCTION: New Game Menu</h1>
           <hr>
           <!-- Starting Health -->
           <div class="field startingHealthField">
@@ -116,18 +122,56 @@
       <!--button class="modal-close is-large" aria-label="close"></button-->
     </div>
     <!-- Confirm Restart Modal-->
-    <div class="modal confirmRestartModal">
+    <div class="modal restartGameMenuModal">
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="box">
-          <h1>End the current game and start a new one?</h1>
+          <h1 class="title">Restart Game?</h1>
+          <h1 class="subtitle">End the current game and start a new one?</h1>
           <hr>
-          <button class="button is-half is-danger" onclick="confirmNewGame(1)">Restart</button>
-          <button class="button is-half is-info" onclick="confirmNewGame(0)">Cancel</button>
+          <button class="button is-half is-danger confirm" onclick="confirmRestartGame(1)">Restart</button>
+          <button class="button is-half is-info dismiss" onclick="confirmRestartGame(0)">Cancel</button>
         </div>
       </div>
-      <button class="modal-close is-large" aria-label="close" onclick="confirmNewGame(0)"></button>
+      <!--button class="modal-close is-large" aria-label="close" onclick="confirmNewGame(0)"></button-->
     </div>
+    <!-- Game Over Modal-->
+    <div class="modal gameOverModal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <h1 class="title">You won!</h1>
+          <hr>
+          <button class="button is-half is-danger" onclick="">Play Again?</button>
+          <button class="button is-half is-info" onclick="">Return to game</button>
+        </div>
+      </div>
+    </div>
+      <!--button class="modal-close is-large" aria-label="close"></button-->
+    <!-- Help Modal-->
+    <div class="modal helpModal">
+      <div class="modal-background" onclick="closeModal('.helpModal')"></div>
+      <div class="modal-content">
+        <div class="box">
+          <h1 class="title">Help Menu</h1>
+          <hr>
+          <table class="table">
+            <thead><tr><th>Action</th><th>Keys</th></tr></thead>
+            <tbody>
+              <tr><td>Increase Life Tracker<br></td><td>Up, W, Numpad+<br></td></tr>
+              <tr><td>Decrease Life Tracker</td><td>Down, S, Numpad-</td></tr>
+              <tr><td>Next turn<br></td><td>Space, NumpadEnter</td></tr>
+              <tr><td>Restart Game<br></td><td>R, N</td></tr>
+              <tr><td>Menu: Yes/Confirm<br></td><td>Y, Space</td></tr>
+              <tr><td>Menu: No/Dismiss<br></td><td>N, Escape<br></td></tr>
+            <tbody>
+          </table>
+          <button class="button is-half is-info dismiss" onclick="closeModal('.helpModal')">Close</button>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" onclick="closeModal('.helpModal')"></button>
+    </div>    
+    <!-- END OF MODALS  -->
     <!-- Scripts -->
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/counter.js"></script>

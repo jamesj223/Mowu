@@ -4,6 +4,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Config
 
+var versionNumber = 'v1.1';
+var versionString = "MagicGoldFish " + versionNumber;
+
 var startingLifeTotal = 40;
 
 var turnCounter = 0;
@@ -14,6 +17,9 @@ var lifeTrackerElement = document.querySelector('.lifeTracker');
 //var lifeDeltaBefore = lifeTracker; At start, and after 5 seconds set to current lifeTracker Value.
 //var lifeDelta = 0; // Show life delta after each press. 5s timer/fadeout, then reset to 0
 //var lifeDeltaTimeout = 0;// Upon life increase of
+
+// Events every X turns
+var difficultyNumber = 0;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Keycodes
@@ -27,52 +33,71 @@ var keyCodes_turn_increase = [32, 13];// Keys: Space, NumpadEnter
 var keyCodes_turn_decrease = [];
 
 // Restart/New Game
-var keyCodes_restart_game = [82]; // Keys: R
+var keyCodes_restart_game = [82, 78]; // Keys: R, N
 
-// Cancel for confirm modal
-var keyCodes_escape = [27];
+// Yes/confirm for current open modal/dialogue
+var keyCodes_menu_yes = [89, 32]; // Keys: Y, Space
+// No/cancel for current open modal/dialogue
+var keyCodes_menu_no = [78, 27]; // Keys: N, Escape
 
 // Events
-var keyCodes_create_event = [];
-var keyCodes_dismiss_event = [68]; // Keys: D
+var keyCodes_create_event = []; // Keys:
+var keyCodes_dismiss_event = []; // Keys:
+
+// Help
+var keyCodes_help = [191]; // Keys: / ?
 
 // Unused keyCodes
-// (88,X) (37,Left) (39,Right) (65,A) (68,D) 
+// (37,Left) (39,Right) (65,A) (68,D) (88,X) 
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 
+// Life Tracker
 var changeLifeTracker = function(amount) {
   // Basic Life Tracker Stuff
   lifeTracker += amount;
-  lifeTracker = Math.max(lifeTracker, 0)
+  lifeTracker = Math.max(lifeTracker, 0);
   lifeTrackerElement.innerHTML = lifeTracker;
   // Delta Stuff
   // TODO
 }
 
+// Turn Counter
 var changeTurnCounter = function(amount) {
   // Basic Turn Counter Stuff
   turnCounter += amount;
-  turnCounter = Math.max(turnCounter, 0)
+  turnCounter = Math.max(turnCounter, 0);
   turnCounterElement.innerHTML = turnCounter;
 }
 
-var openConfirmModal = function () {
-  confirmModal = document.querySelector('.confirmRestartModal')
-  confirmModal.classList.add('is-active')
+// Generic Modal Open
+var openModal = function (objectOrSelector) {
+  if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String)
+    modal = document.querySelector(objectOrSelector);
+  else
+    modal = objectOrSelector;
+  modal.classList.add('is-active');
 }
 
-var closeConfirmModal = function () {
-  confirmModal = document.querySelector('.confirmRestartModal')
-  confirmModal.classList.remove('is-active')
+// Generic Modal Close
+var closeModal = function (objectOrSelector) {
+  if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String)
+    modal = document.querySelector(objectOrSelector);
+  else
+    modal = objectOrSelector;
+  modal.classList.remove('is-active');
 }
 
-var confirmNewGame = function(bool) {
+// Confirm function for restartGameMenuModal
+var confirmRestartGame = function(bool) {
   if(bool){resetCounters();}
-  closeConfirmModal();
+  closeModal('.restartGameMenuModal');
 }
 
+// Helper function for confirmRestartGame and confirmNewGame
+// Should get rid of the globals up the top and have this function take inputs
+//var resetCounters = function(startingLifeTotal=40,difficultyNumber=0) {
 var resetCounters = function() {
   // Reset Counters
   turnCounter = 0;
@@ -91,7 +116,7 @@ var newGame = function() {
   deckNameDataList = document.querySelector('.deckNameDataList');
 
   //Remove any existing data
-  deckNameDataList.replaceChildren()
+  deckNameDataList.replaceChildren();
     //while (deckNameDataList.firstChild) {
   //  deckNameDataList.firstChild.remove()
   //}
@@ -103,9 +128,9 @@ var newGame = function() {
   for (let i = 0; i < deckNameOptions.length; i++){
     //console.log(deckNameOptions[i]);
     option = document.createElement("option");
-    text = document.createTextNode(deckNameOptions[i])
-    option.appendChild(text)
-    deckNameDataList.appendChild(option)
+    text = document.createTextNode(deckNameOptions[i]);
+    option.appendChild(text);
+    deckNameDataList.appendChild(option);
   }
 
 }
@@ -143,39 +168,70 @@ var difficultyButtonClick = function(selector,difficultyNumber) {
 //Keyboard Input
 document.body.onkeyup = function(e) {
 
-  // Increase Life Tracker
-  if(keyCodes_life_increase.includes(e.keyCode)){
-    changeLifeTracker(1);
-  }
+  // Get active modal, if any
+  activeModal = document.querySelector('.modal.is-active');
 
-  // Decrease Life Tracker
-  if(keyCodes_life_decrease.includes(e.keyCode)){
-    changeLifeTracker(-1);
-  }
+  if (activeModal) {
 
-  // Increase Turn Counter
-  if(keyCodes_turn_increase.includes(e.keyCode)){
-    changeTurnCounter(1);
-  }
+    // Confirm current active modal, if able
+    if(keyCodes_menu_yes.includes(e.keyCode)){
+      // Check if modal has a confirm button
+      confirmButton = activeModal.querySelector(".button.confirm");
+      // If there is one, click it.
+      if (confirmButton)
+        confirmButton.click()
+    }
 
-  // Decrease Turn Counter
-  if(keyCodes_turn_decrease.includes(e.keyCode)){
-    changeTurnCounter(-1);
-  }
+    // Dismiss current active modal, if able
+    if(keyCodes_menu_no.includes(e.keyCode)){
+      // Check if modal has a dismiss button
+      dismissButton = activeModal.querySelector(".button.dismiss");
+      // If there is one, click it.
+      if (dismissButton)
+        dismissButton.click()
+    }
 
-  // Restart Game -> Open Confirm Modal
-  if(keyCodes_restart_game.includes(e.keyCode)){
-    openConfirmModal();
   }
+  else {
+    // Increase Life Tracker
+    if(keyCodes_life_increase.includes(e.keyCode)){
+      changeLifeTracker(1);
+    }
 
-  // Cancel confirm modal
-  if(keyCodes_escape.includes(e.keyCode)){
-    closeConfirmModal();
+    // Decrease Life Tracker
+    if(keyCodes_life_decrease.includes(e.keyCode)){
+      changeLifeTracker(-1);
+    }
+
+    // Increase Turn Counter
+    if(keyCodes_turn_increase.includes(e.keyCode)){
+      changeTurnCounter(1);
+    }
+
+    // Decrease Turn Counter
+    if(keyCodes_turn_decrease.includes(e.keyCode)){
+      changeTurnCounter(-1);
+    }
+    // Restart Game -> Open Confirm Modal
+    if(keyCodes_restart_game.includes(e.keyCode)){
+      openModal('.restartGameMenuModal');
+    }
+    // Help Modal
+    if(keyCodes_help.includes(e.keyCode)) {
+      openModal('.helpModal');
+    }
   }
   
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Main
+
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "")
+  versionString += ' - Local Dev';
+
+document.querySelector('title').innerHTML = versionString;
+document.querySelector('.navbar-brand > .navbar-item').innerHTML = versionString;
+
 
 //newGame();
