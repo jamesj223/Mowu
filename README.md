@@ -2,9 +2,11 @@
 
 ## Overview
 
-A Magic: The Gathering goldfishing web app. Super basic (for now).
+A Magic: The Gathering goldfishing web app. Super basic (for now). 
 
 The purpose of this web app is to goldfish (playtest) MTG decks. Track turn count and life total. Play out your turns and see how long it takes you to deal 40 damage to an opponent. Future version might add optional events, to make it slightly more difficult and interactive. Board wipes every X turns, that kind of thing.
+
+The name is a placeholder until I come up with something better.
 
 ## Keyboard Controls
 
@@ -13,19 +15,22 @@ The purpose of this web app is to goldfish (playtest) MTG decks. Track turn coun
     Next Turn - Space, NumpadEnter
     Restart/New Game - R
 
-## v1.0 Release
+## Features
 
-Release contains the following features:
+Current release contains the following features:
 
 - Basic Life Tracker and Turn Counter
-- Keyboard controls
-- On screen +/- buttons
-- Restart Button & Keyboard shortcut
+- Keyboard controls and on screen buttons
+- A Help Menu
 - Bulma CSS/theming
 - Auto deploy releases to Netlify
 
 
 ## Roadmap
+- [ ] Come up with a better name - MagicGoldFish is too close to MTGGoldfish
+    - [ ] Wilson - Way too many things called Wilson already
+    - [ ] Mowu? Less common and more magic relevant/specific
+- [ ] Favicon
 - [ ] Menu (and navbar?)
     - [ ] New game
         - [ ] Starting health
@@ -61,6 +66,7 @@ Release contains the following features:
         - [ ] Random selection of keywords?
     - [ ] 1 to 5 1/1 Deathtouch blockers (w/ defender?)
     - [ ] 1 to 5 1/1 Infect Attackers
+    - [ ] Pillow fort cards
     - [ ] Some of these events might require separate trackers for player and opponent health. Just something to think about
     - [ ] Sub menu to toggle on/off specific events?
 - [ ] Event UI
