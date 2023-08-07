@@ -49,6 +49,8 @@ var keyCodes_restart_game = [82, 78]; // Keys: R, N
 var keyCodes_menu_yes = [89, 32]; // Keys: Y, Space
 // No/cancel for current open modal/dialogue
 var keyCodes_menu_no = [78, 27]; // Keys: N, Escape
+// Super Confirm for New Game Menu
+var keyCodes_menu_superConfirm = [13]; // Keys: Enter
 
 // Events
 var keyCodes_create_event = []; // Keys:
@@ -222,7 +224,7 @@ document.body.onkeyup = function(e) {
     // Get active modal, if any
     activeModal = document.querySelector('.modal.is-active');
 
-    if (activeModal ) {
+    if (activeModal) {
 
         // Confirm current active modal, if able
         if (keyCodes_menu_yes.includes(e.keyCode)) {
@@ -241,6 +243,16 @@ document.body.onkeyup = function(e) {
             if (dismissButton)
                 dismissButton.click()
         }
+
+        // Super Confirm for new game modal
+        if (keyCodes_menu_superConfirm.includes(e.keyCode)) {
+            // Check if modal has a confirm button
+            superConfirmButton = activeModal.querySelector(".button.superConfirm");
+            // If there is one, click it.
+            if (superConfirmButton)
+                superConfirmButton.click()
+        }
+        superConfirm
 
     } else {
         // Increase Life Tracker
