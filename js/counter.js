@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Config
 
-var versionNumber = 'v1.1';
+var versionNumber = 'v1.2';
 var versionString = "Mowu " + versionNumber;
 
 var startingLifeTotal = 40;
