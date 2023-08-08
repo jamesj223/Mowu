@@ -12,9 +12,9 @@ var turnCounterElement = document.querySelector('.turnCounter');
 
 var lifeTracker = startingLifeTotal;
 var lifeTrackerElement = document.querySelector('.lifeTracker');
-//var lifeDeltaBefore = lifeTracker; At start, and after 5 seconds set to current lifeTracker Value.
-//var lifeDelta = 0; // Show life delta after each press. 5s timer/fadeout, then reset to 0
-//var lifeDeltaTimeout = 0;// Upon life increase of
+
+var lifeDelta = 0; // Show life delta after each press. 5s timer/fadeout, then reset to 0
+var lifeDeltaElement = document.querySelector('.lifeDelta');
 
 // Starting Life Total
 var startingLifeTotal = 40;
@@ -71,8 +71,56 @@ function changeLifeTracker(amount) {
     lifeTracker += amount;
     lifeTracker = Math.max(lifeTracker, 0);
     lifeTrackerElement.innerHTML = lifeTracker;
-    // Delta Stuff
-    // TODO
+    
+    deltaHelper(amount);
+    
+}
+
+function deltaHelper(amount) {
+    
+    //Clone the whole element to remove any previous animation/event listeners
+    old_element = lifeDeltaElement;
+    new_element = old_element.cloneNode(true);
+    old_element.parentNode.replaceChild(new_element, old_element);
+
+    // Grab the new element
+    lifeDeltaElement = document.querySelector('.lifeDelta');
+
+    // Update the value
+    lifeDelta += amount;
+
+    // Update the innerhtml with signed string value
+    lifeDeltaElement.innerHTML = deltraString(lifeDelta);
+
+    // Set text colour
+    lifeDeltaElement.classList.remove('has-text-white');
+    if (lifeDelta > 0){
+        lifeDeltaElement.classList.add('has-text-success');
+    } else if (lifeDelta < 0){
+        lifeDeltaElement.classList.add('has-text-danger');
+    } else {
+        lifeDeltaElement.classList.add('has-text-black');
+    }
+
+    // Fade out over time,
+    animateCSS(lifeDeltaElement, 'fadeOut').then((message) => {
+        // After it has faded out, hide element and reset counters
+        lifeDelta = 0;
+        lifeDeltaElement.classList.add('has-text-white');
+        lifeDeltaElement.classList.remove('has-text-success')
+        lifeDeltaElement.classList.remove('has-text-danger')
+        lifeDeltaElement.classList.remove('has-text-black')
+      });
+
+}
+
+// Return number as a signed string
+function deltraString(number) {
+    if(number > 0){
+        return "+" + number;
+    } else {
+        return number.toString();
+    }    
 }
 
 // Turn Counter
@@ -102,7 +150,7 @@ function closeModal(objectOrSelector) {
     animateCSS(modal, 'fadeOut').then((message) => {
         // Do something after the animation
         modal.classList.remove('is-active');
-      });;
+      });
     // Need to remove is-active after animation ends or we get weird behaviour 
     // where it founds out and then pops back in again.
     //modal.classList.remove('is-active');
@@ -131,6 +179,12 @@ function openNewGameModal() {
     openModal('.newGameMenuModal');
     //newGameMenuModal = document.querySelector('.newGameMenuModal');
     //newGameMenuModal.classList.add('is-active');
+
+    // Unlock form inputs
+    document.querySelector('.startingLifeInput').disabled = false;
+    document.querySelector('.deckNameInput').disabled = false;
+    document.querySelector(".buttons.difficulty").disabled = false;
+    document.querySelector('.difficultyInput').disabled = false;
 
     // If previous game settings exist, populate these as default
     if (previousGameSettings.length)
@@ -209,6 +263,12 @@ function difficultyValueChange() {
 
 // Function for "Start Game" button in newGameMenuModal
 function startNewGame() {
+    // Lock form inputs
+    document.querySelector('.startingLifeInput').disabled = true; 
+    document.querySelector('.deckNameInput').disabled = true; 
+    document.querySelector(".buttons.difficulty").disabled = true; 
+    document.querySelector('.difficultyInput').disabled = true; 
+
     // Get/apply values from form
     startingLifeTotal = document.querySelector('.startingLifeInput').valueAsNumber;
     deckName = document.querySelector('.deckNameInput').value;

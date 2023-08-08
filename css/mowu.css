@@ -1,0 +1,4 @@
+.lifeDelta {
+    --animate-duration: 5s;
+    animation-composition: replace;
+}

@@ -34,7 +34,10 @@ Current release contains the following features:
 
 ### Full feature backlog
 
-- [x] Add fade in/out for modals
+- [x] Life delta that fades over time
+- [x] On new game confirm button click, immediately disable all forms to prevent being able to click them while the modal is fading out.
+- [ ] Fix restart menu sometimes reappearing and after confirm
+- [ ] Fix counters column resizing when counters go up/down from single figures
 - [ ] Menu (and navbar?)
     - [x] New game
         - [x] Starting health
@@ -47,7 +50,6 @@ Current release contains the following features:
 - [x] Confirm before restarting when game in progress
     - [ ] Same but for exiting/closing the tab? Or too annoying
 - [ ] Progressive key down repeat rate (start slowly, then progressively get faster)
-- [ ] Life delta thing that fades over time
 - [ ] Game over check?
     - [ ] alert/pop up window with new game button, and dismiss/continue/undo 
 - [ ] Local storage (IndexedDB?)
