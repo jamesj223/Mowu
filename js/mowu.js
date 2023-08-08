@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Config
 
-const versionNumber = 'v1.2';
+const versionNumber = 'v1.3';
 var versionString = "Mowu " + versionNumber;
 
 var turnCounter = 0;
