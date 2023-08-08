@@ -23,7 +23,7 @@ Current release contains the following features:
 - Keyboard controls and on screen buttons
 - A Help Menu
 - Bulma CSS/theming
-- Auto deploy releases to Netlify
+- Auto deploy releases to Netlify using GitHub Actions
 
 ## Future Versions
 
