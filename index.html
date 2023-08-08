@@ -92,59 +92,60 @@
             <div class="box">
                 <h1 class="title">New Game Menu</h1>
                 <hr/>
-                <!-- Start of Fields -->
-                <!-- Starting Life -->
-                <div class="field startingLifeField">
-                    <label class="label startingLifeLabel">Starting Life</label>
-                    <div class="control startingLifeControl">
-                        <input class="input startingLifeInput" type="number" value="40" style="width:15%">
-                    </div>
-                </div>
-                <hr>
-                <div class="box has-background-grey-lighter">
-                    <h1 class="subtitle">Coming Soon</h1>
-                    <!-- Deck Name -->
-                    <div class="field deckNameField">
-                        <label class="label deckNameLabel">Deck</label>
-                        <div class="control deckNameControl">
-                            <input class="input deckNameInput" type="text" list="deckName" placeholder="Select from previously used decks or enter new deck name">
-                            <datalist class="datalist deckNameDataList" id="deckName">
-                                <option>These</option>
-                                <option>Should</option>
-                                <option>Get</option>
-                                <option>Automatically</option>
-                                <option>Replaced</option>
-                            </datalist>
+                <fieldset class="newGameMenuFieldset">
+                    <!-- Starting Life -->
+                    <div class="field startingLifeField">
+                        <label class="label startingLifeLabel">Starting Life</label>
+                        <div class="control startingLifeControl">
+                            <input class="input startingLifeInput" type="number" value="40" style="width:15%">
                         </div>
                     </div>
-                    <!-- Difficulty -->
-                    <div class="field difficultyField">
-                        <label class="label difficultyLabel">Difficulty</label>
-                        <div class="control difficultyControl">
-                            <div class="buttons difficulty has-addons">
-                                <button class="button difficultyOff is-selected is-info" onclick="difficultyButtonClick('.difficultyOff',0)" >Off</button>
-                                <button class="button difficultyEasy" onclick="difficultyButtonClick('.difficultyEasy',7)" >Easy</button>                                
-                                <button class="button difficultyMedium" onclick="difficultyButtonClick('.difficultyMedium',5)" >Medium</button>
-                                <button class="button difficultyHard" onclick="difficultyButtonClick('.difficultyHard',3)" >Hard</button>
-                                <button class="button difficultyCustom" onclick="difficultyButtonClick('.difficultyCustom',0)" >Custom</button>
+                    <hr>
+                    <div class="box has-background-grey-lighter">
+                        <h1 class="subtitle">Coming Soon</h1>
+                        <!-- Deck Name -->
+                        <div class="field deckNameField">
+                            <label class="label deckNameLabel">Deck</label>
+                            <div class="control deckNameControl">
+                                <input class="input deckNameInput" type="text" list="deckName" placeholder="Select from previously used decks or enter new deck name">
+                                <datalist class="datalist deckNameDataList" id="deckName">
+                                    <option>These</option>
+                                    <option>Should</option>
+                                    <option>Get</option>
+                                    <option>Automatically</option>
+                                    <option>Replaced</option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <!-- Difficulty -->
+                        <div class="field difficultyField">
+                            <label class="label difficultyLabel">Difficulty</label>
+                            <div class="control difficultyControl">
+                                <div class="buttons difficulty has-addons">
+                                    <button class="button difficultyOff is-selected is-info" onclick="difficultyButtonClick('.difficultyOff',0)" >Off</button>
+                                    <button class="button difficultyEasy" onclick="difficultyButtonClick('.difficultyEasy',7)" >Easy</button>                                
+                                    <button class="button difficultyMedium" onclick="difficultyButtonClick('.difficultyMedium',5)" >Medium</button>
+                                    <button class="button difficultyHard" onclick="difficultyButtonClick('.difficultyHard',3)" >Hard</button>
+                                    <button class="button difficultyCustom" onclick="difficultyButtonClick('.difficultyCustom',0)" >Custom</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Events -->
+                        <div class="field">
+                            <label class="label eventsLabel">Random events every <span class="eventsLabelSpan">0</span> turns</label>
+                            <div class="control">
+                                <input class="input difficultyInput is-flex-grow-1" type="number" value="0" style="width:15%" onchange="difficultyValueChange()" disabled>
                             </div>
                         </div>
                     </div>
-                    <!-- Events -->
-                    <div class="field">
-                        <label class="label eventsLabel">Random events every <span class="eventsLabelSpan">0</span> turns</label>
+                    <!-- Submit Button -->
+                    <div class="field is-grouped">
                         <div class="control">
-                            <input class="input difficultyInput is-flex-grow-1" type="number" value="0" style="width:15%" onchange="difficultyValueChange()" disabled>
+                            <button class="button is-half is-info superConfirm" onclick="startNewGame()">Start Game</button>
                         </div>
                     </div>
-                </div>
-                <!-- Submit Button -->
-                <div class="field is-grouped">
-                    <div class="control">
-                        <button class="button is-half is-info superConfirm" onclick="startNewGame()">Start Game</button>
-                    </div>
-                </div>
-                <!-- End of Fields -->
+                    <!-- End of Fields -->
+                </fieldset>
             </div>
         </div>
         <!--button class="modal-close is-large" aria-label="close"></button-->

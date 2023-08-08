@@ -8,13 +8,13 @@ const versionNumber = 'v1.3';
 var versionString = "Mowu " + versionNumber;
 
 var turnCounter = 0;
-var turnCounterElement = document.querySelector('.turnCounter');
+var turnCounterElement = $('.turnCounter');
 
 var lifeTracker = startingLifeTotal;
-var lifeTrackerElement = document.querySelector('.lifeTracker');
+var lifeTrackerElement = $('.lifeTracker');
 
 var lifeDelta = 0; // Show life delta after each press. 5s timer/fadeout, then reset to 0
-var lifeDeltaElement = document.querySelector('.lifeDelta');
+var lifeDeltaElement = $('.lifeDelta');
 
 // Starting Life Total
 var startingLifeTotal = 40;
@@ -80,7 +80,7 @@ function deltaHelper(amount) {
     old_element.parentNode.replaceChild(new_element, old_element);
 
     // Grab the new element
-    lifeDeltaElement = document.querySelector('.lifeDelta');
+    lifeDeltaElement = $('.lifeDelta');
 
     // Update the value
     lifeDelta += amount;
@@ -106,7 +106,7 @@ function deltaHelper(amount) {
         lifeDeltaElement.classList.remove('has-text-success')
         lifeDeltaElement.classList.remove('has-text-danger')
         lifeDeltaElement.classList.remove('has-text-black')
-      });
+    });
 }
 
 // Return number as a signed string
@@ -153,8 +153,11 @@ function closeModal(objectOrSelector) {
 // Confirm function for restartGameMenuModal
 function confirmRestartGame(bool) {
     if (bool) { 
-        openModal('.newGameMenuModal'); 
+        // THIS WAS THE STUPID BUG! ARGH!
+        //openModal('.newGameMenuModal'); 
+        openNewGameModal();
     }
+
     closeModal('.restartGameMenuModal');
 }
 
@@ -174,11 +177,12 @@ function openNewGameModal() {
     //newGameMenuModal = document.querySelector('.newGameMenuModal');
     //newGameMenuModal.classList.add('is-active');
 
-    // Unlock form inputs
-    document.querySelector('.startingLifeInput').disabled = false;
-    document.querySelector('.deckNameInput').disabled = false;
-    document.querySelector(".buttons.difficulty").disabled = false;
-    document.querySelector('.difficultyInput').disabled = false;
+    // Unlock form inputs 
+    $('.newGameMenuFieldset').removeAttr("disabled");
+    //$('.startingLifeInput').removeAttr("disabled");
+    //$('.deckNameInput').removeAttr("disabled");
+    //$(".buttons.difficulty").removeAttr("disabled");
+    //$('.difficultyInput').removeAttr("disabled");
 
     // If previous game settings exist, populate these as default
     if (previousGameSettings.length)
@@ -257,10 +261,11 @@ function difficultyValueChange() {
 // Function for "Start Game" button in newGameMenuModal
 function startNewGame() {
     // Lock form inputs
-    document.querySelector('.startingLifeInput').disabled = true; 
-    document.querySelector('.deckNameInput').disabled = true; 
-    document.querySelector(".buttons.difficulty").disabled = true; 
-    document.querySelector('.difficultyInput').disabled = true; 
+    $('.newGameMenuFieldset').attr("disabled", "");
+    //$('.startingLifeInput').attr("disabled");
+    //$('.deckNameInput').attr("disabled");
+    //$(".buttons.difficulty").attr("disabled");
+    //$('.difficultyInput').attr("disabled");
 
     // Get/apply values from form
     startingLifeTotal = document.querySelector('.startingLifeInput').valueAsNumber;
