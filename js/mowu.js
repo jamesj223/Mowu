@@ -8,13 +8,13 @@ const versionNumber = 'v1.3';
 var versionString = "Mowu " + versionNumber;
 
 var turnCounter = 0;
-var turnCounterElement = $('.turnCounter');
+var turnCounterElement = document.querySelector('.turnCounter');
 
 var lifeTracker = startingLifeTotal;
-var lifeTrackerElement = $('.lifeTracker');
+var lifeTrackerElement = document.querySelector('.lifeTracker');
 
 var lifeDelta = 0; // Show life delta after each press. 5s timer/fadeout, then reset to 0
-var lifeDeltaElement = $('.lifeDelta');
+var lifeDeltaElement = document.querySelector('.lifeDelta');
 
 // Starting Life Total
 var startingLifeTotal = 40;
@@ -80,7 +80,7 @@ function deltaHelper(amount) {
     old_element.parentNode.replaceChild(new_element, old_element);
 
     // Grab the new element
-    lifeDeltaElement = $('.lifeDelta');
+    lifeDeltaElement = document.querySelector('.lifeDelta');
 
     // Update the value
     lifeDelta += amount;
@@ -178,7 +178,7 @@ function openNewGameModal() {
     //newGameMenuModal.classList.add('is-active');
 
     // Unlock form inputs 
-    $('.newGameMenuFieldset').removeAttr("disabled");
+    document.querySelector('.newGameMenuFieldset').disabled=false;
     //$('.startingLifeInput').removeAttr("disabled");
     //$('.deckNameInput').removeAttr("disabled");
     //$(".buttons.difficulty").removeAttr("disabled");
@@ -261,7 +261,7 @@ function difficultyValueChange() {
 // Function for "Start Game" button in newGameMenuModal
 function startNewGame() {
     // Lock form inputs
-    $('.newGameMenuFieldset').attr("disabled", "");
+    document.querySelector('.newGameMenuFieldset').disabled=true;
     //$('.startingLifeInput').attr("disabled");
     //$('.deckNameInput').attr("disabled");
     //$(".buttons.difficulty").attr("disabled");
