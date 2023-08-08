@@ -34,7 +34,7 @@ Current release contains the following features:
 
 ### Full feature backlog
 
-- [ ] Add fade in/out for modals
+- [x] Add fade in/out for modals
 - [ ] Menu (and navbar?)
     - [x] New game
         - [x] Starting health

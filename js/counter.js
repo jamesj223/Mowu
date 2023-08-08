@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Config
 
-var versionNumber = 'v1.2';
+const versionNumber = 'v1.2';
 var versionString = "Mowu " + versionNumber;
 
 var turnCounter = 0;
@@ -23,11 +23,11 @@ var startingLifeTotal = 40;
 var deckName = "";
 
 // Difficulty settings. Events every X turns
-var difficultySelector = ""
+var difficultySelector = "";
 var difficultyNumber = 0;
 
 // [int startingLife, string deckName, string difficultyButtonSelector, int difficultyNumber]
-var defaultGameSettings = [40, "", ".difficultyOff", 0];
+const defaultGameSettings = [40, "", ".difficultyOff", 0];
 var previousGameSettings = [];
 //var previousGameSettings = [111,"Bilbo's Birthday Bash", ".difficultyCustom", 42];
 
@@ -35,29 +35,29 @@ var previousGameSettings = [];
 // Keycodes
 
 // Life Tracker
-var keyCodes_life_increase = [38, 87, 107]; // Keys: Up, W, Numpad+
-var keyCodes_life_decrease = [40, 83, 109]; // Keys: Down, S, Numpad-
+const keyCodes_life_increase = [38, 87, 107]; // Keys: Up, W, Numpad+
+const keyCodes_life_decrease = [40, 83, 109]; // Keys: Down, S, Numpad-
 
 // Turn Counter
-var keyCodes_turn_increase = [32, 13]; // Keys: Space, NumpadEnter
-var keyCodes_turn_decrease = [];
+const keyCodes_turn_increase = [32, 13]; // Keys: Space, NumpadEnter
+const keyCodes_turn_decrease = [];
 
 // Restart/New Game
-var keyCodes_restart_game = [82, 78]; // Keys: R, N
+const keyCodes_restart_game = [82, 78]; // Keys: R, N
 
 // Yes/confirm for current open modal/dialogue
-var keyCodes_menu_yes = [89, 32]; // Keys: Y, Space
+const keyCodes_menu_yes = [89, 32]; // Keys: Y, Space
 // No/cancel for current open modal/dialogue
-var keyCodes_menu_no = [78, 27]; // Keys: N, Escape
+const keyCodes_menu_no = [78, 27]; // Keys: N, Escape
 // Super Confirm for New Game Menu
-var keyCodes_menu_superConfirm = [13]; // Keys: Enter
+const keyCodes_menu_superConfirm = [13]; // Keys: Enter
 
 // Events
-var keyCodes_create_event = []; // Keys:
-var keyCodes_dismiss_event = []; // Keys:
+const keyCodes_create_event = []; // Keys:
+const keyCodes_dismiss_event = []; // Keys:
 
 // Help
-var keyCodes_help = [191]; // Keys: / ?
+const keyCodes_help = [191]; // Keys: / ?
 
 // Unused keyCodes
 // (37,Left) (39,Right) (65,A) (68,D) (88,X) 
@@ -66,7 +66,7 @@ var keyCodes_help = [191]; // Keys: / ?
 // Functions
 
 // Life Tracker
-var changeLifeTracker = function(amount) {
+function changeLifeTracker(amount) {
     // Basic Life Tracker Stuff
     lifeTracker += amount;
     lifeTracker = Math.max(lifeTracker, 0);
@@ -76,7 +76,7 @@ var changeLifeTracker = function(amount) {
 }
 
 // Turn Counter
-var changeTurnCounter = function(amount) {
+function changeTurnCounter(amount) {
     // Basic Turn Counter Stuff
     turnCounter += amount;
     turnCounter = Math.max(turnCounter, 0);
@@ -84,32 +84,40 @@ var changeTurnCounter = function(amount) {
 }
 
 // Generic Modal Open
-var openModal = function(objectOrSelector) {
+function openModal(objectOrSelector) {
     if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String)
         modal = document.querySelector(objectOrSelector);
     else
         modal = objectOrSelector;
+    animateCSS(modal, 'fadeIn');
     modal.classList.add('is-active');
 }
 
 // Generic Modal Close
-var closeModal = function(objectOrSelector) {
+function closeModal(objectOrSelector) {
     if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String)
         modal = document.querySelector(objectOrSelector);
     else
         modal = objectOrSelector;
-    modal.classList.remove('is-active');
+    animateCSS(modal, 'fadeOut').then((message) => {
+        // Do something after the animation
+        modal.classList.remove('is-active');
+      });;
+    // Need to remove is-active after animation ends or we get weird behaviour 
+    // where it founds out and then pops back in again.
+    //modal.classList.remove('is-active');
 }
 
 // Confirm function for restartGameMenuModal
-var confirmRestartGame = function(bool) {
-    if (bool) { resetCounters(); }
+function confirmRestartGame(bool) {
     closeModal('.restartGameMenuModal');
-    openModal('.newGameMenuModal');
+    if (bool) { 
+        openModal('.newGameMenuModal'); 
+    }
 }
 
 // Helper function for confirmRestartGame and startNewGame
-var resetCounters = function() {
+function resetCounters() {
     // Reset Counters
     turnCounter = 0;
     lifeTracker = startingLifeTotal;
@@ -118,7 +126,7 @@ var resetCounters = function() {
     turnCounterElement.innerHTML = turnCounter;
 }
 
-var openNewGameModal = function() {
+function openNewGameModal() {
     // Open Modal
     openModal('.newGameMenuModal');
     //newGameMenuModal = document.querySelector('.newGameMenuModal');
@@ -153,7 +161,7 @@ var openNewGameModal = function() {
 
 }
 
-var newGameFormHelper = function(startingLife, deckName, difficultyButtonSelector, difficultyNumber) {
+function newGameFormHelper(startingLife, deckName, difficultyButtonSelector, difficultyNumber) {
     document.querySelector('.startingLifeInput').value = startingLife;
     document.querySelector('.deckNameInput').value = deckName;
     difficultyButtonClick(difficultyButtonSelector, difficultyNumber);
@@ -164,7 +172,7 @@ var newGameFormHelper = function(startingLife, deckName, difficultyButtonSelecto
 }
 
 // Helper function to handle difficulty buttons in new game form and update numeric difficulty accordingly
-var difficultyButtonClick = function(selector, difficultyNumber) {
+function difficultyButtonClick(selector, difficultyNumber) {
     // De-select all buttons
     allDifficultyButtons = document.querySelector('.buttons.difficulty')
     for (child of allDifficultyButtons.children) {
@@ -194,13 +202,13 @@ var difficultyButtonClick = function(selector, difficultyNumber) {
 }
 
 // Helper function to make sure difficulty span updates to track difficulty input
-var difficultyValueChange = function() {
+function difficultyValueChange() {
     value = document.querySelector(".difficultyInput").value;
     document.querySelector(".eventsLabelSpan").innerHTML = value;
 }
 
 // Function for "Start Game" button in newGameMenuModal
-var startNewGame = function() {
+function startNewGame() {
     // Get/apply values from form
     startingLifeTotal = document.querySelector('.startingLifeInput').valueAsNumber;
     deckName = document.querySelector('.deckNameInput').value;
@@ -216,6 +224,28 @@ var startNewGame = function() {
     // Close new game modal
     closeModal('.newGameMenuModal');
 }
+
+// Add animation to an element, then remove it once the animation ends
+const animateCSS = (element, animation, prefix = 'animate__') =>
+  // We create a Promise and return it
+  new Promise((resolve, reject) => {
+    const animationName = `${prefix}${animation}`;
+    
+    // Original code has element, but is actually referring to a selector
+    //const node = document.querySelector(element);
+    const node = element;
+
+    node.classList.add(`${prefix}animated`, animationName);
+
+    // When the animation ends, we clean the classes and resolve the Promise
+    function handleAnimationEnd(event) {
+      event.stopPropagation();
+      node.classList.remove(`${prefix}animated`, animationName);
+      resolve('Animation ended');
+    }
+
+    node.addEventListener('animationend', handleAnimationEnd, {once: true});
+  });
 
 ////////////////////////////////////////////////////////////////////////////////
 //Keyboard Input
@@ -252,7 +282,6 @@ document.body.onkeyup = function(e) {
             if (superConfirmButton)
                 superConfirmButton.click()
         }
-        superConfirm
 
     } else {
         // Increase Life Tracker
