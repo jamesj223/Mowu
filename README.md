@@ -34,9 +34,7 @@ Current release contains the following features:
 
 ### Full feature backlog
 
-- [x] Life delta that fades over time
-- [x] On new game confirm button click, immediately disable all forms to prevent being able to click them while the modal is fading out.
-- [ ] Fix restart menu sometimes reappearing and after confirm
+- [x] Fix restart menu sometimes reappearing and after confirm
 - [ ] Fix counters column resizing when counters go up/down from single figures
 - [ ] Menu (and navbar?)
     - [x] New game

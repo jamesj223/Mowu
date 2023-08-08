@@ -67,17 +67,13 @@ const keyCodes_help = [191]; // Keys: / ?
 
 // Life Tracker
 function changeLifeTracker(amount) {
-    // Basic Life Tracker Stuff
     lifeTracker += amount;
     lifeTracker = Math.max(lifeTracker, 0);
     lifeTrackerElement.innerHTML = lifeTracker;
-    
     deltaHelper(amount);
-    
 }
 
 function deltaHelper(amount) {
-    
     //Clone the whole element to remove any previous animation/event listeners
     old_element = lifeDeltaElement;
     new_element = old_element.cloneNode(true);
@@ -111,7 +107,6 @@ function deltaHelper(amount) {
         lifeDeltaElement.classList.remove('has-text-danger')
         lifeDeltaElement.classList.remove('has-text-black')
       });
-
 }
 
 // Return number as a signed string
@@ -133,35 +128,34 @@ function changeTurnCounter(amount) {
 
 // Generic Modal Open
 function openModal(objectOrSelector) {
-    if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String)
+    if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String) {
         modal = document.querySelector(objectOrSelector);
-    else
+    } else {
         modal = objectOrSelector;
+    }
     animateCSS(modal, 'fadeIn');
     modal.classList.add('is-active');
 }
 
 // Generic Modal Close
 function closeModal(objectOrSelector) {
-    if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String)
+    if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String) {
         modal = document.querySelector(objectOrSelector);
-    else
+    } else {
         modal = objectOrSelector;
+    }
     animateCSS(modal, 'fadeOut').then((message) => {
-        // Do something after the animation
+        // Once the fadeout is complete, remove the is-active class from the modal
         modal.classList.remove('is-active');
-      });
-    // Need to remove is-active after animation ends or we get weird behaviour 
-    // where it founds out and then pops back in again.
-    //modal.classList.remove('is-active');
+    });
 }
 
 // Confirm function for restartGameMenuModal
 function confirmRestartGame(bool) {
-    closeModal('.restartGameMenuModal');
     if (bool) { 
         openModal('.newGameMenuModal'); 
     }
+    closeModal('.restartGameMenuModal');
 }
 
 // Helper function for confirmRestartGame and startNewGame
@@ -212,7 +206,6 @@ function openNewGameModal() {
         option.appendChild(text);
         deckNameDataList.appendChild(option);
     }
-
 }
 
 function newGameFormHelper(startingLife, deckName, difficultyButtonSelector, difficultyNumber) {
@@ -287,25 +280,25 @@ function startNewGame() {
 
 // Add animation to an element, then remove it once the animation ends
 const animateCSS = (element, animation, prefix = 'animate__') =>
-  // We create a Promise and return it
-  new Promise((resolve, reject) => {
-    const animationName = `${prefix}${animation}`;
-    
-    // Original code has element, but is actually referring to a selector
-    //const node = document.querySelector(element);
-    const node = element;
+    // We create a Promise and return it
+    new Promise((resolve, reject) => {
+        const animationName = `${prefix}${animation}`;
+        
+        // Original code has element, but is actually referring to a selector
+        //const node = document.querySelector(element);
+        const node = element;
 
-    node.classList.add(`${prefix}animated`, animationName);
+        node.classList.add(`${prefix}animated`, animationName);
 
-    // When the animation ends, we clean the classes and resolve the Promise
-    function handleAnimationEnd(event) {
-      event.stopPropagation();
-      node.classList.remove(`${prefix}animated`, animationName);
-      resolve('Animation ended');
-    }
+        // When the animation ends, we clean the classes and resolve the Promise
+        function handleAnimationEnd(event) {
+            event.stopPropagation();
+            node.classList.remove(`${prefix}animated`, animationName);
+            resolve('Animation ended');
+        }
 
-    node.addEventListener('animationend', handleAnimationEnd, {once: true});
-  });
+        node.addEventListener('animationend', handleAnimationEnd, {once: true});
+    });
 
 ////////////////////////////////////////////////////////////////////////////////
 //Keyboard Input
@@ -315,7 +308,6 @@ document.body.onkeyup = function(e) {
     activeModal = document.querySelector('.modal.is-active');
 
     if (activeModal) {
-
         // Confirm current active modal, if able
         if (keyCodes_menu_yes.includes(e.keyCode)) {
             // Check if modal has a confirm button
@@ -324,7 +316,6 @@ document.body.onkeyup = function(e) {
             if (confirmButton)
                 confirmButton.click()
         }
-
         // Dismiss current active modal, if able
         if (keyCodes_menu_no.includes(e.keyCode)) {
             // Check if modal has a dismiss button
@@ -333,7 +324,6 @@ document.body.onkeyup = function(e) {
             if (dismissButton)
                 dismissButton.click()
         }
-
         // Super Confirm for new game modal
         if (keyCodes_menu_superConfirm.includes(e.keyCode)) {
             // Check if modal has a confirm button
@@ -342,23 +332,19 @@ document.body.onkeyup = function(e) {
             if (superConfirmButton)
                 superConfirmButton.click()
         }
-
     } else {
         // Increase Life Tracker
         if (keyCodes_life_increase.includes(e.keyCode)) {
             changeLifeTracker(1);
         }
-
         // Decrease Life Tracker
         if (keyCodes_life_decrease.includes(e.keyCode)) {
             changeLifeTracker(-1);
         }
-
         // Increase Turn Counter
         if (keyCodes_turn_increase.includes(e.keyCode)) {
             changeTurnCounter(1);
         }
-
         // Decrease Turn Counter
         if (keyCodes_turn_decrease.includes(e.keyCode)) {
             changeTurnCounter(-1);
@@ -372,7 +358,6 @@ document.body.onkeyup = function(e) {
             openModal('.helpModal');
         }
     }
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////
