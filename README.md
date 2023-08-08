@@ -6,7 +6,7 @@ Mowu is a Magic: The Gathering goldfishing web app. Super basic (for now).
 
 The purpose of this web app is to goldfish (playtest) MTG decks. Track turn count and life total. Play out your turns and see how long it takes you to deal 40 damage to an opponent. Eventually, I'd like to add optional events, to make it slightly more difficult and interactive. Creatures to deal with, board wipes etc.
 
-Deployed (here)[https://mowu-mtg.netlify.app/]
+Deployed [here](https://mowu-mtg.netlify.app/)
 
 ## Keyboard Controls
 
