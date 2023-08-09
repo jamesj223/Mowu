@@ -2,7 +2,7 @@
 
 ## Current Priorities
 
-- [ ] License
+- [x] License
 - [ ] Support
 
 ## Full feature backlog

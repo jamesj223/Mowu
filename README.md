@@ -36,5 +36,7 @@ If you like Mowu, please consider supporting it by starring this GitHub page, do
 
 ## License
 
-Licensed under [INSERT LICENSE HERE].
+MIT License
+
+Copyright (c) 2023 jamesj223
 
