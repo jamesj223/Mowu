@@ -36,6 +36,8 @@ Current release contains the following features:
 
 - [x] Fix restart menu sometimes reappearing and after confirm
 - [ ] Fix counters column resizing when counters go up/down from single figures
+- [ ] Animate navbar menu opening/closing
+- [ ] Expand/hide footer (and animate this too)
 - [ ] Menu (and navbar?)
     - [x] New game
         - [x] Starting health

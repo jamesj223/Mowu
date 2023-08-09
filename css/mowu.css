@@ -7,3 +7,10 @@
 .lifeTracker {
     --animate-duration: 1s;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  width: 100%;
+}

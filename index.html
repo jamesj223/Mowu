@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html class="has-background-grey-lighter">
-
 <head>
     <title>Mowu</title>
     <meta charset="utf-8"/>
@@ -14,21 +13,27 @@
     <link rel="stylesheet" href="css/mowu.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
-
 <body>
-    <!-- NAV BAR -->
+    <!-- Nav Bar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <h1 class="navbar-item">Mowu</h1>
+            <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-        <div class="navbar-end">
-            <a class="navbar-item" href="#" onclick="openModal('.helpModal');return false;">Press ? for help</a>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="#" onclick="openModal('.helpModal');return false;">Press ? for help</a>
+            </div>
         </div>
     </nav>
-    <!-- END OF NAV BAR -->
-    <!-- MAIN SECTION -->
+    <!-- End of Nav Bar -->
+    <!-- Main Section -->
     <section class="section">
-        <div class="columns is-mobile is-centered ">
+        <div class="columns is-mobile is-centered">
             <!-- Column 1 - Left Paddng -->
             <div class="column padding-left"></div>
             <!-- Column 2 - Counters -->
@@ -84,8 +89,8 @@
             <div class="column padding-right"></div>
         </div>
     </section>
-    <!-- END OF MAIN SECTION-->
-    <!-- MODALS -->
+    <!-- End of Main Section -->
+    <!-- Modals -->
     <!-- New Game Menu Modal-->
     <div class="modal newGameMenuModal">
         <div class="modal-background"></div>
@@ -201,7 +206,17 @@
         </div>
         <button class="modal-close is-large" aria-label="close" onclick="closeModal('.helpModal')"></button>
     </div>
-    <!-- END OF MODALS  -->
+    <!-- End of Modals  -->
+    <!-- Footer -->
+    <footer class="footer is-hidden-mobile">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4 has-text-left"><p></p></div>
+                <div class="column is-4 has-text-centered"><p>Check out <strong>Mowu</strong> on <a href="https://github.com/jamesj223/Mowu">GitHub</a></p></div>
+                <div class="column is-4 has-text-right"><p></p></div>
+            </div>
+        </div>
+    </footer>
     <!-- Scripts -->
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/mowu.js"></script>
