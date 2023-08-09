@@ -49,6 +49,8 @@
     - [ ] Card for each event? With a dismiss button/hotkey
 - [ ] Custom Art Cards for each event?
     - [ ] Static or generated?
+- [ ] Improve UI for small screens
+	- [ ] Currently the counter/tracker boxes break a little bit on smaller screens	
 
 ## Shelved for now
 
