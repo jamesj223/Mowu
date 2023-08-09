@@ -32,7 +32,7 @@ Current release contains the following features:
 
 ## Support
 
-You can support Mowu by starring this GitHub page, donating [INSERT DONATION THING HERE], or just by telling your friends about it.
+If you like Mowu, please consider supporting it by starring this GitHub page, donating [INSERT DONATION THING HERE], or just by telling your friends about it.
 
 ## License
 

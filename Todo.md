@@ -4,9 +4,6 @@
 
 - [ ] License
 - [ ] Support
-- [x] Fix counters column resizing when counters go up/down from single figures
-- [ ] Animate navbar menu opening/closing
-- [ ] Expand/hide footer (and animate this too)
 
 ## Full feature backlog
 
@@ -52,3 +49,8 @@
     - [ ] Card for each event? With a dismiss button/hotkey
 - [ ] Custom Art Cards for each event?
     - [ ] Static or generated?
+
+## Shelved for now
+
+- [ ] Animate navbar menu opening/closing
+- [ ] Expand/hide footer (and animate this too)
