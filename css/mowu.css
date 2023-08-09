@@ -1,4 +1,9 @@
 .lifeDelta {
-    --animate-duration: 5s;
+    --animate-delay: 1s;
+    --animate-duration: 2s;
     animation-composition: replace;
+}
+
+.lifeTracker {
+    --animate-duration: 1s;
 }

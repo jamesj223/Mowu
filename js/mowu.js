@@ -106,6 +106,9 @@ function deltaHelper(amount) {
         lifeDeltaElement.classList.remove('has-text-success')
         lifeDeltaElement.classList.remove('has-text-danger')
         lifeDeltaElement.classList.remove('has-text-black')
+        // Animate Life Tracker to let user know delta has finished
+        // Pulse, flash or headShake?
+        animateCSS(lifeTrackerElement, 'flash')
     });
 }
 
