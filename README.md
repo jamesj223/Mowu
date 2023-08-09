@@ -27,15 +27,14 @@ Current release contains the following features:
 
 ## Future Versions
 
-### Roadmap
-
 - The main feature planned for V2 will be persistent storage.
 - The main feature planned for V3 will be events.
 
-## License
-
-Lorem
-
 ## Support
 
-Ipsum
+You can support Mowu by starring this GitHub page, donating [INSERT DONATION THING HERE], or just by telling your friends about it.
+
+## License
+
+Licensed under [INSERT LICENSE HERE].
+

@@ -336,9 +336,15 @@ document.body.onkeyup = function(e) {
         if (keyCodes_menu_superConfirm.includes(e.keyCode)) {
             // Check if modal has a confirm button
             superConfirmButton = activeModal.querySelector(".button.superConfirm");
+            // Also Check for regular confirm button
+            confirmButton = activeModal.querySelector(".button.confirm");
             // If there is one, click it.
-            if (superConfirmButton)
+            if (superConfirmButton) {
                 superConfirmButton.click()
+            } // If not, try for regular confirm button
+            else if (confirmButton) {
+                confirmButton.click()
+            }
         }
     } else {
         // Increase Life Tracker

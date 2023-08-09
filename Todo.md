@@ -4,7 +4,7 @@
 
 - [ ] License
 - [ ] Support
-- [ ] Fix counters column resizing when counters go up/down from single figures
+- [x] Fix counters column resizing when counters go up/down from single figures
 - [ ] Animate navbar menu opening/closing
 - [ ] Expand/hide footer (and animate this too)
 
