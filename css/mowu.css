@@ -5,7 +5,7 @@
 }
 
 .lifeTracker {
-    --animate-duration: 1s;
+    --animate-duration: 0.5s;
 }
 
 .footer {

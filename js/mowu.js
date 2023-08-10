@@ -49,8 +49,8 @@ const keyCodes_restart_game = [82, 78]; // Keys: R, N
 const keyCodes_menu_yes = [89, 32]; // Keys: Y, Space
 // No/cancel for current open modal/dialogue
 const keyCodes_menu_no = [78, 27]; // Keys: N, Escape
-// Super Confirm for New Game Menu
-const keyCodes_menu_superConfirm = [13]; // Keys: Enter
+// Submit for New Game Menu
+const keyCodes_menu_submit = [13]; // Keys: Enter
 
 // Events
 const keyCodes_create_event = []; // Keys:
@@ -107,8 +107,13 @@ function deltaHelper(amount) {
         lifeDeltaElement.classList.remove('has-text-danger')
         lifeDeltaElement.classList.remove('has-text-black')
         // Animate Life Tracker to let user know delta has finished
-        // Pulse, flash or headShake?
-        animateCSS(lifeTrackerElement, 'flash')
+        // Can't decide between flash or headShake
+        animateCSS(lifeTrackerElement, 'headShake').then((message) => {
+            //Check if lifeTracker has reached 0
+            if (lifeTracker == 0) {
+                openModal('.gameOverModal')
+            }
+        });
     });
 }
 
@@ -136,6 +141,9 @@ function openModal(objectOrSelector) {
     } else {
         modal = objectOrSelector;
     }
+    // Enable any buttons
+
+    // Animations
     animateCSS(modal, 'fadeIn');
     modal.classList.add('is-active');
 }
@@ -147,6 +155,9 @@ function closeModal(objectOrSelector) {
     } else {
         modal = objectOrSelector;
     }
+    //Disable any buttons
+
+    // Animations
     animateCSS(modal, 'fadeOut').then((message) => {
         // Once the fadeout is complete, remove the is-active class from the modal
         modal.classList.remove('is-active');
@@ -155,13 +166,17 @@ function closeModal(objectOrSelector) {
 
 // Confirm function for restartGameMenuModal
 function confirmRestartGame(bool) {
+    
+    // Get active modal, if any
+    activeModal = document.querySelector('.modal.is-active');
+    
     if (bool) { 
         // THIS WAS THE STUPID BUG! ARGH!
         //openModal('.newGameMenuModal'); 
         openNewGameModal();
     }
 
-    closeModal('.restartGameMenuModal');
+    closeModal(activeModal);
 }
 
 // Helper function for confirmRestartGame and startNewGame
@@ -332,16 +347,16 @@ document.body.onkeyup = function(e) {
             if (dismissButton)
                 dismissButton.click()
         }
-        // Super Confirm for new game modal
-        if (keyCodes_menu_superConfirm.includes(e.keyCode)) {
-            // Check if modal has a confirm button
-            superConfirmButton = activeModal.querySelector(".button.superConfirm");
+        // Submit for new game modal
+        if (keyCodes_menu_submit.includes(e.keyCode)) {
+            // Check if modal has a submit button
+            submitButton = activeModal.querySelector(".button.submit");
             // Also Check for regular confirm button
             confirmButton = activeModal.querySelector(".button.confirm");
-            // If there is one, click it.
-            if (superConfirmButton) {
-                superConfirmButton.click()
-            } // If not, try for regular confirm button
+            // If there is a submit button, click it.
+            if (submitButton) {
+                submitButton.click()
+            } // Otherwise, try the same for confirm button
             else if (confirmButton) {
                 confirmButton.click()
             }

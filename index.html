@@ -147,7 +147,7 @@
                     <!-- Submit Button -->
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-half is-info superConfirm" onclick="startNewGame()">Start Game</button>
+                            <button class="button is-half is-info submit" onclick="startNewGame()">Start Game</button>
                         </div>
                     </div>
                     <!-- End of Fields -->
@@ -164,8 +164,10 @@
                 <h1 class="title">Restart Game?</h1>
                 <h1 class="subtitle">End the current game and start a new one?</h1>
                 <hr/>
-                <button class="button is-half is-danger confirm" onclick="confirmRestartGame(1)">Restart</button>
-                <button class="button is-half is-info dismiss" onclick="confirmRestartGame(0)">Cancel</button>
+                <div class="buttons restartGameMenuButtons">
+                    <button class="button is-half is-danger confirm" onclick="confirmRestartGame(1)">Restart</button>
+                    <button class="button is-half is-info dismiss" onclick="confirmRestartGame(0)">Cancel</button>
+                </div>
             </div>
         </div>
         <!--button class="modal-close is-large" aria-label="close" onclick="confirmNewGame(0)"></button-->
@@ -177,8 +179,10 @@
             <div class="box">
                 <h1 class="title">You won!</h1>
                 <hr/>
-                <button class="button is-half is-danger" onclick="">Play Again?</button>
-                <button class="button is-half is-info" onclick="">Return to game</button>
+                <div class="buttons gameOverModalButtons">
+                    <button class="button is-half is-info confirm" onclick="confirmRestartGame(1)">Play Again?</button>
+                    <button class="button is-half dismiss" onclick="confirmRestartGame(0)">Return to game</button>
+                </div>
             </div>
         </div>
     </div>

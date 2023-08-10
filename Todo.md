@@ -2,8 +2,10 @@
 
 ## Current Priorities
 
-- [x] License
-- [ ] Support
+- [x] Game over modal.
+    - [x] Add check to changeLifeTracker, and open gameOverModal if 0 
+- [ ] README - Screenshot
+- [ ] README - Support
 
 ## Full feature backlog
 
@@ -19,8 +21,6 @@
 - [x] Confirm before restarting when game in progress
     - [ ] Same but for exiting/closing the tab? Or too annoying
 - [ ] Progressive key down repeat rate (start slowly, then progressively get faster)
-- [ ] Game over check?
-    - [ ] alert/pop up window with new game button, and dismiss/continue/undo 
 - [ ] Local storage (IndexedDB?)
     - [ ] Or server side
     - [ ] Or cloud/accounts?
@@ -33,18 +33,33 @@
 - [ ] Display stats for stored decks
     - [ ] Easy/medium/hard/custom
     - [ ] Export (csv?)
-- [ ] "Events"
-    - [ ] Board wipe (creatures, artifacts?)
-        - [ ] Pick a random real board wipe card?
-    - [ ] Destroy/exile biggest minion
-    - [ ] Wheel of fortune
-    - [ ] Big creature 20/20 w/ haste, vigilance
-        - [ ] Random selection of keywords?
-    - [ ] 1 to 5 1/1 Deathtouch blockers (w/ defender?)
-    - [ ] 1 to 5 1/1 Infect Attackers
-    - [ ] Pillow fort cards
-    - [ ] Some of these events might require separate trackers for player and opponent health. Just something to think about
+- [ ] Events
+    - [ ] Basic Events - Events that don't require player health tracking
+        - [ ] Board wipe (creatures, artifacts?)
+            - [ ] Pick a random real board wipe card?
+        - [ ] Destroy/exile biggest minion
+        - [ ] Wheel of fortune
+        - [ ] Basic Pillow Fort 
+            - [ ] Ghostly Prison
+            - [ ] Moat
+            - [ ] Dissipation Field
+            - [ ] No Mercy
+            - [ ] Dueling Grounds
+            - [ ] Crawlspace
+        - [ ] Summon X (random 1-5?) 1/1 Deathtouch blockers (w/ defender? and must block if able)
+    - [ ] Advanced Events - Events that require player health tracking
+        - [ ] Big creature (10/10? 20/20?) w/ haste, vigilance
+            - [ ] Random selection of keywords?
+        - [ ] Summon X (random 1-5?) 1/1 Infect Attackers (that can't block and must attack if able)
+        - [ ] Advanced Pillow Fort
+            - [ ] Windborn Muse
+            - [ ] Norn's Annex
+            - [ ] etc
+    - [ ] Other Events
+        - [ ] Counter spells? How would that work? Just counter whatever the next spell player casts?
+            - [ ] Maybe instead of counters, just cards that make opponents spells cost more. Like Defense Grid.
     - [ ] Sub menu to toggle on/off specific events?
+    - [ ] Might need a way to mark a restart as a loss, once events are added?
 - [ ] Event UI
     - [ ] Card for each event? With a dismiss button/hotkey
 - [ ] Custom Art Cards for each event?
