@@ -4,8 +4,13 @@
 
 - [x] Game over modal.
     - [x] Add check to changeLifeTracker, and open gameOverModal if 0 
+- [ ] Let health go in to negative
+- [ ] Tweak speed of health/delta animations
+- [ ] Speed up modal fade in/out animations
+- [ ] Separate buttons/modals for new game and restart game with current settings
 - [ ] README - Screenshot
 - [ ] README - Support
+
 
 ## Full feature backlog
 
