@@ -8,9 +8,10 @@
 - [ ] Tweak speed of health/delta animations
 - [ ] Speed up modal fade in/out animations
 - [ ] Separate buttons/modals for new game and restart game with current settings
+- [ ] Add deck name to nav bar  - centred, and truncate if too long
+- [ ] Move version number to footer
 - [ ] README - Screenshot
 - [ ] README - Support
-
 
 ## Full feature backlog
 
