@@ -5,7 +5,7 @@
 // Config
 
 const versionNumber = 'v1.3';
-var versionString = "Mowu " + versionNumber;
+var versionString = "" + versionNumber;
 
 var turnCounter = 0;
 var turnCounterElement = document.querySelector('.turnCounter');
@@ -408,8 +408,9 @@ $(document).ready(function() {
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "")
     versionString += ' - Local Dev';
 
-document.querySelector('title').innerHTML = versionString;
-document.querySelector('.navbar-brand > .navbar-item').innerHTML = versionString;
+document.querySelector('.footerMiddle').innerHTML = versionString;
+//document.querySelector('title').innerHTML = versionString;
+//document.querySelector('.navbar-brand > .navbar-item').innerHTML = versionString;
 
 
 openNewGameModal();

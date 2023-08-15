@@ -1,10 +1,16 @@
+.turnCounter {
+    min-width: 3ch;
+}
+
 .lifeDelta {
+    min-width: 3ch;
     --animate-delay: 1s;
     --animate-duration: 2s;
     animation-composition: replace;
 }
 
 .lifeTracker {
+    min-width: 3ch;
     --animate-duration: 0.5s;
 }
 
@@ -13,4 +19,5 @@
     bottom: 0;
     padding: 1rem;
     width: 100%;
+    white-space: nowrap;
 }

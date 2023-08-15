@@ -3,13 +3,17 @@
 ## Current Priorities
 
 - [x] Game over modal.
-    - [x] Add check to changeLifeTracker, and open gameOverModal if 0 
+    - [x] Add check to changeLifeTracker, and open gameOverModal if 0
+    - [ ] Improve check, so that it only triggers once - Add a gameOverDismissed check or something along those lines? 
+- [x] Improve UI for small screens
+	- [x] Fixed the counter/tracker boxes break a little bit on smaller screens	
+- [x] Move version number to footer
+- [ ] Add deck name to nav bar  - centred, and truncate if too long
 - [ ] Let health go in to negative
 - [ ] Tweak speed of health/delta animations
 - [ ] Speed up modal fade in/out animations
 - [ ] Separate buttons/modals for new game and restart game with current settings
-- [ ] Add deck name to nav bar  - centred, and truncate if too long
-- [ ] Move version number to footer
+
 - [ ] README - Screenshot
 - [ ] README - Support
 
@@ -70,8 +74,7 @@
     - [ ] Card for each event? With a dismiss button/hotkey
 - [ ] Custom Art Cards for each event?
     - [ ] Static or generated?
-- [ ] Improve UI for small screens
-	- [ ] Currently the counter/tracker boxes break a little bit on smaller screens	
+
 
 ## Shelved for now
 

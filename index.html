@@ -35,9 +35,9 @@
     <section class="section">
         <div class="columns is-mobile is-centered">
             <!-- Column 1 - Left Paddng -->
-            <div class="column padding-left"></div>
+            <div class="column padding-left is-1"></div>
             <!-- Column 2 - Counters -->
-            <div class="column is-third counters">
+            <div class="column counters is-narrow">
                 <div class="box">
                     <button class="button is-info is-fullwidth" onclick="openModal('.restartGameMenuModal')">Restart</button>
                 </div>
@@ -47,14 +47,14 @@
                         <div class="column is-8">
                             <h1 class="title has-text-centered">Turn</h1>
                             <hr/>
-                            <div class="columns">
+                            <div class="columns is-mobile">
                                 <div class="column"></div>
                                 <div class="column"><h2 class="subtitle has-text-centered turnCounter">0</h2></div>
                                 <div class="column"></div>
                             </div>
                             
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-4">
                             <button class="button is-success is-medium my-1" onclick="changeTurnCounter(1)"><span><i class="fa fa-plus"></i></span></button>
                             <button class="button is-danger is-medium my-1" onclick="changeTurnCounter(-1)"><span><i class="fa fa-minus"></i></span></button>
                         </div>
@@ -66,13 +66,13 @@
                         <div class="column is-8">
                             <h1 class="title has-text-centered">Life</h1>
                             <hr/>
-                            <div class="columns">
+                            <div class="columns is-mobile">
                                 <div class="column"></div>
                                 <div class="column"><h2 class="subtitle has-text-centered lifeTracker">40</h2></div>
                                 <div class="column"><h2 class="subtitle has-text-centered lifeDelta has-text-white animate__delay-1s">100</h2></div>
                             </div>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-4">
                             <button class="button is-success is-medium my-1" onclick="changeLifeTracker(1)"><span><i class="fa fa-plus"></i></span></button>
                             <button class="button is-danger is-medium my-1" onclick="changeLifeTracker(-1)"><span><i class="fa fa-minus"></i></span></button>
                         </div>
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <!-- Column 4 - Right Padding -->
-            <div class="column padding-right"></div>
+            <div class="column padding-right is-1"></div>
         </div>
     </section>
     <!-- End of Main Section -->
@@ -218,12 +218,12 @@
     </div>
     <!-- End of Modals  -->
     <!-- Footer -->
-    <footer class="footer is-hidden-mobile">
+    <footer class="footer">
         <div class="container">
             <div class="columns has-text-grey-light">
-                <div class="column is-4 has-text-left "><p>Check out Mowu on <a class="has-text-grey-dark" href="https://github.com/jamesj223/Mowu">GitHub</a></p></div>
-                <div class="column is-4 has-text-centered has-text-white"><p>Made by jamesj223</p></div>
-                <div class="column is-4 has-text-right"><p>Built using <a class="has-text-grey-dark" href="https://bulma.io/">Bulma</a> and <a class="has-text-grey-dark" href="https://animate.style/">Animate.css</a></p></div>
+                <div class="column is-4 has-text-left is-hidden-mobile"><p>Check out Mowu on <a class="has-text-grey-dark" href="https://github.com/jamesj223/Mowu">GitHub</a></p></div>
+                <div class="column is-4 has-text-centered"><p class="footerMiddle">Made by jamesj223</p></div>
+                <div class="column is-4 has-text-right is-hidden-mobile"><p>Built using <a class="has-text-grey-dark" href="https://bulma.io/">Bulma</a> and <a class="has-text-grey-dark" href="https://animate.style/">Animate.css</a></p></div>
             </div>
         </div>
     </footer>
