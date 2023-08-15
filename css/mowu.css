@@ -14,6 +14,10 @@
     --animate-duration: 0.5s;
 }
 
+.modal {
+    --animate-duration: 0.5s;
+}
+
 .footer {
     position: absolute;
     bottom: 0;

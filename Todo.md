@@ -2,7 +2,7 @@
 
 ## Current Priorities
 
-- [ ] Speed up modal fade in/out animations
+- [x] Reduced modal fade in/out animation duration
 - [ ] Add deck name to nav bar  - centred, and truncate if too long
 - [ ] Let health go in to negative
 - [ ] Separate buttons/modals for new game and quick restart with current settings
