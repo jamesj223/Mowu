@@ -136,32 +136,43 @@ function changeTurnCounter(amount) {
 
 // Generic Modal Open
 function openModal(objectOrSelector) {
+
+    unbindInputs();
+
+    // Parse obejectOrSelector and get relevant modal
     if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String) {
         modal = document.querySelector(objectOrSelector);
     } else {
         modal = objectOrSelector;
     }
-    // Enable any buttons
-
-    // Animations
-    animateCSS(modal, 'fadeIn');
+    
+    // Handle Animations
+    animateCSS(modal, 'fadeIn').then((message) => {
+        bindInputs("menu");
+    });
     modal.classList.add('is-active');
+
 }
 
 // Generic Modal Close
 function closeModal(objectOrSelector) {
+
+    unbindInputs();
+
+    // Parse obejectOrSelector and get relevant modal
     if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String) {
         modal = document.querySelector(objectOrSelector);
     } else {
         modal = objectOrSelector;
     }
-    //Disable any buttons
 
     // Animations
     animateCSS(modal, 'fadeOut').then((message) => {
         // Once the fadeout is complete, remove the is-active class from the modal
         modal.classList.remove('is-active');
     });
+    bindInputs("gameplay");
+
 }
 
 // Confirm function for restartGameMenuModal
@@ -192,8 +203,6 @@ function resetCounters() {
 function openNewGameModal() {
     // Open Modal
     openModal('.newGameMenuModal');
-    //newGameMenuModal = document.querySelector('.newGameMenuModal');
-    //newGameMenuModal.classList.add('is-active');
 
     // Unlock form inputs 
     document.querySelector('.newGameMenuFieldset').disabled=false;
@@ -325,8 +334,49 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
 
 ////////////////////////////////////////////////////////////////////////////////
 //Keyboard Input
-document.body.onkeyup = function(e) {
 
+function inputMenuButtonHelper (selector) {
+    activeModal = document.querySelector('.modal.is-active');
+    // Check if active modal has a [selector] button
+    button = activeModal.querySelector(selector);
+    // If there is one, click it.
+    if (button) {
+        button.click()
+        console.log(selector + " button clicked")
+    }
+
+
+}
+
+function unbindInputs () {
+    // Unbind everything
+    Mousetrap.reset();
+    //console.log("All inputs unbound")
+}
+
+function bindInputs (mode) {
+
+    if (mode=="menu") {
+        // Bind menu inputs
+        Mousetrap.bind(['y','space'], function() { inputMenuButtonHelper(".confirm"); return false; }, 'keyup');
+        Mousetrap.bind(['n','escape'], function() {inputMenuButtonHelper(".dismiss"); return false; }, 'keyup');
+        Mousetrap.bind(['enter'], function() {inputMenuButtonHelper(".submit"); return false; }, 'keyup');
+        //console.log("Menu inputs bound")
+    } else if (mode=="gameplay") {
+        // Bind gameplay inputs    
+        Mousetrap.bind(["up","w", "+"], function() {changeLifeTracker(1)});
+        Mousetrap.bind(["down","s", "-"], function() {changeLifeTracker(-1)});
+        Mousetrap.bind(["space","enter"], function() {changeTurnCounter(1); return false; }, 'keyup');
+        //Mousetrap.bind(["",""], function() {changeTurnCounter(-1)});
+        Mousetrap.bind(["r","n"], function() { openModal('.restartGameMenuModal')}, 'keyup');
+        Mousetrap.bind(["/","?"],function() { openModal('.helpModal')});
+        //console.log("Gameplay inputs bound")
+    }   
+
+}
+
+//document.body.onkeyup = function(e) {
+if (false) {
     // Get active modal, if any
     activeModal = document.querySelector('.modal.is-active');
 
@@ -411,6 +461,5 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || lo
 document.querySelector('.footerMiddle').innerHTML = versionString;
 //document.querySelector('title').innerHTML = versionString;
 //document.querySelector('.navbar-brand > .navbar-item').innerHTML = versionString;
-
 
 openNewGameModal();

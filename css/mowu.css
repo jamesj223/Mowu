@@ -5,7 +5,7 @@
 .lifeDelta {
     min-width: 3ch;
     --animate-delay: 1s;
-    --animate-duration: 2s;
+    --animate-duration: 1s;
     animation-composition: replace;
 }
 
