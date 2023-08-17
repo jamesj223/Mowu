@@ -9,4 +9,4 @@ jobs:
     - uses: actions/checkout@master
     - name: Update version.js
       run: |
-          echo document.querySelector('.footerMiddle').innerHTML = "$GITHUB_REF_NAME"; >> js/version.js
+          echo "document.querySelector('.footerMiddle').innerHTML = '$GITHUB_REF_NAME';" >> js/version.js
