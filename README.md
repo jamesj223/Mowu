@@ -20,9 +20,9 @@ Deployed [here](https://mowu-mtg.netlify.app/)
 Current release contains the following features:
 
 - Basic Life Tracker and Turn Counter
-- Keyboard controls and on screen buttons
-- A Help Menu
-- Bulma CSS/theming
+- [Mousetrap](https://craig.is/killing/mice) for keyboard controls
+- [Bulma](https://bulma.io/) for CSS
+- [Animate.csss](https://animate.style/) for animations
 - Auto deploy releases to Netlify using GitHub Actions
 
 ## Future Versions
@@ -30,9 +30,11 @@ Current release contains the following features:
 - The main feature planned for V2 will be persistent storage.
 - The main feature planned for V3 will be events.
 
+A full list of ideas/potential features can be found in [here](TODO.md)
+
 ## Support
 
-If you like Mowu, please consider supporting it by starring this GitHub page, donating [INSERT DONATION THING HERE], or just by telling your friends about it.
+If you like Mowu, please consider supporting it by starring this GitHub page, <!-- donating [INSERT DONATION THING HERE] "buy me a coffee" or one of those kind of pages,--> or by telling your friends about it.
 
 ## License
 
