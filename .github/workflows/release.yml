@@ -1,4 +1,4 @@
-name: 'Deploy Release to Netlify'
+name: 'On Release - Deploy to Netlify'
 
 on:
   release:
