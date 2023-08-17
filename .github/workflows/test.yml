@@ -7,8 +7,7 @@ jobs:
     name: Write Version to File
     steps:
     - uses: actions/checkout@master
-    - name: Update version
-      uses: brettdorrans/write-version-to-file@master
-      with:
-        filename: '/.VERSION'
-        placeholder: '${VERSION}'
+    - name: Show default environment variables
+      run: |
+          echo "GITHUB_REF is: $GITHUB_REF"
+          echo "GITHUB_REF_NAME is: $GITHUB_REF_NAME"
