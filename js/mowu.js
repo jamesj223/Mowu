@@ -4,9 +4,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Config
 
-const versionNumber = 'v1.3';
-var versionString = "" + versionNumber;
-
 var turnCounter = 0;
 var turnCounterElement = document.querySelector('.turnCounter');
 
@@ -30,37 +27,6 @@ var difficultyNumber = 0;
 const defaultGameSettings = [40, "", ".difficultyOff", 0];
 var previousGameSettings = [];
 //var previousGameSettings = [111,"Bilbo's Birthday Bash", ".difficultyCustom", 42];
-
-////////////////////////////////////////////////////////////////////////////////
-// Keycodes
-
-// Life Tracker
-const keyCodes_life_increase = [38, 87, 107]; // Keys: Up, W, Numpad+
-const keyCodes_life_decrease = [40, 83, 109]; // Keys: Down, S, Numpad-
-
-// Turn Counter
-const keyCodes_turn_increase = [32, 13]; // Keys: Space, NumpadEnter
-const keyCodes_turn_decrease = [];
-
-// Restart/New Game
-const keyCodes_restart_game = [82, 78]; // Keys: R, N
-
-// Yes/confirm for current open modal/dialogue
-const keyCodes_menu_yes = [89, 32]; // Keys: Y, Space
-// No/cancel for current open modal/dialogue
-const keyCodes_menu_no = [78, 27]; // Keys: N, Escape
-// Submit for New Game Menu
-const keyCodes_menu_submit = [13]; // Keys: Enter
-
-// Events
-const keyCodes_create_event = []; // Keys:
-const keyCodes_dismiss_event = []; // Keys:
-
-// Help
-const keyCodes_help = [191]; // Keys: / ?
-
-// Unused keyCodes
-// (37,Left) (39,Right) (65,A) (68,D) (88,X) 
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
@@ -345,7 +311,6 @@ function inputMenuButtonHelper (selector) {
         console.log(selector + " button clicked")
     }
 
-
 }
 
 function unbindInputs () {
@@ -375,70 +340,6 @@ function bindInputs (mode) {
 
 }
 
-//document.body.onkeyup = function(e) {
-if (false) {
-    // Get active modal, if any
-    activeModal = document.querySelector('.modal.is-active');
-
-    if (activeModal) {
-        // Confirm current active modal, if able
-        if (keyCodes_menu_yes.includes(e.keyCode)) {
-            // Check if modal has a confirm button
-            confirmButton = activeModal.querySelector(".button.confirm");
-            // If there is one, click it.
-            if (confirmButton)
-                confirmButton.click()
-        }
-        // Dismiss current active modal, if able
-        if (keyCodes_menu_no.includes(e.keyCode)) {
-            // Check if modal has a dismiss button
-            dismissButton = activeModal.querySelector(".button.dismiss");
-            // If there is one, click it.
-            if (dismissButton)
-                dismissButton.click()
-        }
-        // Submit for new game modal
-        if (keyCodes_menu_submit.includes(e.keyCode)) {
-            // Check if modal has a submit button
-            submitButton = activeModal.querySelector(".button.submit");
-            // Also Check for regular confirm button
-            confirmButton = activeModal.querySelector(".button.confirm");
-            // If there is a submit button, click it.
-            if (submitButton) {
-                submitButton.click()
-            } // Otherwise, try the same for confirm button
-            else if (confirmButton) {
-                confirmButton.click()
-            }
-        }
-    } else {
-        // Increase Life Tracker
-        if (keyCodes_life_increase.includes(e.keyCode)) {
-            changeLifeTracker(1);
-        }
-        // Decrease Life Tracker
-        if (keyCodes_life_decrease.includes(e.keyCode)) {
-            changeLifeTracker(-1);
-        }
-        // Increase Turn Counter
-        if (keyCodes_turn_increase.includes(e.keyCode)) {
-            changeTurnCounter(1);
-        }
-        // Decrease Turn Counter
-        if (keyCodes_turn_decrease.includes(e.keyCode)) {
-            changeTurnCounter(-1);
-        }
-        // Restart Game -> Open Confirm Modal
-        if (keyCodes_restart_game.includes(e.keyCode)) {
-            openModal('.restartGameMenuModal');
-        }
-        // Help Modal
-        if (keyCodes_help.includes(e.keyCode)) {
-            openModal('.helpModal');
-        }
-    }
-}
-
 // Navbar
 $(document).ready(function() {
 
@@ -454,12 +355,5 @@ $(document).ready(function() {
 
 ////////////////////////////////////////////////////////////////////////////////
 // Main
-
-if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "")
-    versionString += ' - Local Dev';
-
-document.querySelector('.footerMiddle').innerHTML = versionString;
-//document.querySelector('title').innerHTML = versionString;
-//document.querySelector('.navbar-brand > .navbar-item').innerHTML = versionString;
 
 openNewGameModal();
