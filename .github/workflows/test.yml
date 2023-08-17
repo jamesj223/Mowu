@@ -1,8 +1,5 @@
 name: TEST - Write Version to File
-on:
-  push:
-    branches:
-      - test
+on:  workflow_dispatch
 
 jobs:
   write-version:
