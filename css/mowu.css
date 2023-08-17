@@ -1,3 +1,7 @@
+.columnTwoCardTitle {
+    min-width: 4ch;
+}
+
 .turnCounter {
     min-width: 3ch;
 }

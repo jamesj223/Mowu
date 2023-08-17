@@ -298,6 +298,90 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
         node.addEventListener('animationend', handleAnimationEnd, {once: true});
     });
 
+// Generate a random string of a given length to use as an EventID
+function randomEventID(length){
+    eventID = '';
+    validCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i=0; i < length; i++) {
+        eventID += validCharacters[ Math.floor(Math.random() * validCharacters.length) ];
+    }
+    return eventID;
+}
+
+function createElementFromTemplate(html) {
+    var template = document.createElement('template');
+    html = html.trim(); // Never return a text node of whitespace as the result
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
+
+// Generate a random event
+function generateEvent() {
+
+    // Housekeeping
+    eventID = randomEventID(5);
+    eventsColumn = document.querySelector('.column.events');
+
+    // Choose Event Type
+    // Todo
+    eventType = "test";
+
+    // Choose Event within Type
+    // Todo
+    chosenEventName = "Placeholder"
+    //chosenEventNumCards = 1;
+    chosenEventImage = "Placeholder.png";
+
+    // If multiple cards, work out how many, then create that many boxes
+    // Todo
+    //numCards = 1;
+    eventCardImageString = "images/events/" + eventType + "/" + chosenEventImage
+
+    // Create ~box~ message
+    eventMessage = createElementFromTemplate(
+        `<article class="message is-light" id="${eventID}">
+            <div class="message-header">
+                <p>${chosenEventName}</p>
+                <button class="delete" aria-label="delete" onclick="dismissEvent('#${eventID}')"></button>
+            </div>
+            <div class="message-body">
+                <figure class="image is-3by5">
+                    <img src="${eventCardImageString}" alt="${chosenEventName}">
+                </figure>
+            </div>
+        </article>`
+        );
+    
+    // Add box to column
+    eventsColumn.appendChild(eventMessage);
+    
+    // Hide "No active events" card
+    document.querySelector('.noActiveEvents').classList.add('is-hidden');
+
+    // Unhide column
+    eventsColumn.classList.remove('is-hidden');
+
+    // Todo
+
+}
+
+function dismissEvent(eventID) {
+
+    // Housekeeping
+    eventBox = document.querySelector(eventID);
+    eventsColumn = document.querySelector('.column.events');
+
+    // Remove event from column
+    eventsColumn.removeChild(eventBox);
+
+    // Check if column has any more events, if not, unhide the "No active events" card
+    // Or just hide the whole column?
+    if (eventsColumn.children.length == 1)
+        //eventsColumn.classList.add('is-hidden');
+        document.querySelector('.noActiveEvents').classList.remove('is-hidden');
+
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 //Keyboard Input
 
@@ -333,8 +417,9 @@ function bindInputs (mode) {
         Mousetrap.bind(["down","s", "-"], function() {changeLifeTracker(-1)});
         Mousetrap.bind(["space","enter"], function() {changeTurnCounter(1); return false; }, 'keyup');
         //Mousetrap.bind(["",""], function() {changeTurnCounter(-1)});
-        Mousetrap.bind(["r","n"], function() { openModal('.restartGameMenuModal')}, 'keyup');
+        Mousetrap.bind(["r"], function() { openModal('.restartGameMenuModal')}, 'keyup');
         Mousetrap.bind(["/","?"],function() { openModal('.helpModal')});
+        Mousetrap.bind('ctrl+e', function() { generateEvent(); return false; });
         //console.log("Gameplay inputs bound")
     }   
 

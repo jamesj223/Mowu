@@ -27,10 +27,10 @@ Current release contains the following features:
 
 ## Future Versions
 
-- The main feature planned for V2 will be persistent storage.
-- The main feature planned for V3 will be events.
+- The main feature planned for V2 will be events.
+- The main feature planned for V3 will be persistent storage.
 
-A full list of ideas/potential features can be found in [here](TODO.md)
+A full list of ideas/potential features can be found in [here](docs/TODO.md)
 
 ## Support
 
