@@ -4,9 +4,9 @@ on:  workflow_dispatch
 jobs:
   write-version:
     runs-on: ubuntu-latest
-    name: Update version.js
+    name: TEST
     steps:
     - uses: actions/checkout@master
-    - name: Show default environment variables
+    - name: Update version.js
       run: |
           echo document.querySelector('.footerMiddle').innerHTML = "$GITHUB_REF_NAME"; >> js/version.js
