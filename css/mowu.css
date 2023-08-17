@@ -18,6 +18,11 @@
     --animate-duration: 0.5s;
 }
 
+.magicCard {
+    min-width: 100px;
+    max-width: 350px;
+}
+
 .modal {
     --animate-duration: 0.5s;
 }

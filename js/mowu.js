@@ -300,7 +300,7 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
 
 // Generate a random string of a given length to use as an EventID
 function randomEventID(length){
-    eventID = '';
+    eventID = 'e-';
     validCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (let i=0; i < length; i++) {
         eventID += validCharacters[ Math.floor(Math.random() * validCharacters.length) ];
@@ -339,13 +339,13 @@ function generateEvent() {
 
     // Create ~box~ message
     eventMessage = createElementFromTemplate(
-        `<article class="message is-light" id="${eventID}">
+        `<article class="message magicCard is-light" id="${eventID}">
             <div class="message-header">
-                <p>${chosenEventName}</p>
+                <p>Event</p>
                 <button class="delete" aria-label="delete" onclick="dismissEvent('#${eventID}')"></button>
             </div>
             <div class="message-body">
-                <figure class="image is-3by5">
+                <figure class="image">
                     <img src="${eventCardImageString}" alt="${chosenEventName}">
                 </figure>
             </div>
