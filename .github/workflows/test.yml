@@ -4,11 +4,9 @@ on:  workflow_dispatch
 jobs:
   write-version:
     runs-on: ubuntu-latest
-    name: Write Version to File
+    name: Update version.js
     steps:
     - uses: actions/checkout@master
-    - name: Update version
-      uses: brettdorrans/write-version-to-file@master
-      with:
-        filename: '/.VERSION'
-        placeholder: '${VERSION}'
+    - name: Show default environment variables
+      run: |
+          echo document.querySelector('.footerMiddle').innerHTML = "$GITHUB_REF_NAME"; >> js/version.js
