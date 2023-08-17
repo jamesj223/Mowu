@@ -4,7 +4,7 @@ on:  workflow_dispatch
 jobs:
   write-version:
     runs-on: ubuntu-latest
-    name: Write Version to File
+    name: Update version.js
     steps:
     - uses: actions/checkout@master
     - name: Show default environment variables
