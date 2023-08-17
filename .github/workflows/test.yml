@@ -1,8 +1,8 @@
-name: Write Version to File
+name: TEST - Write Version to File
 on:
   push:
     branches:
-      - master
+      - test
 
 jobs:
   write-version:
