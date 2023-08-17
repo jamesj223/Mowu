@@ -9,5 +9,4 @@ jobs:
     - uses: actions/checkout@master
     - name: Show default environment variables
       run: |
-          echo "GITHUB_REF is: $GITHUB_REF"
-          echo "GITHUB_REF_NAME is: $GITHUB_REF_NAME"
+          echo document.querySelector('.footerMiddle').innerHTML = "$GITHUB_REF_NAME"; >> js/version.js
