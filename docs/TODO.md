@@ -12,9 +12,6 @@
 
 ## Full feature backlog
 
-- [ ] Compact tracker cards for mobile
-    - [ ] Utilise "is-size-[X]-mobile" for Titles
-    - [ ] Utilise "is-[SIZE] is-responsive" for Buttons
 - [ ] Menu (and navbar?)
     - [x] New game
         - [x] Starting health
@@ -52,3 +49,6 @@
 
 - [ ] Animate navbar menu opening/closing
 - [ ] Expand/hide footer (and animate this too)
+- [ ] Compact tracker cards for mobile
+    - [ ] Utilise "is-size-[X]-mobile" for Titles
+    - [ ] Utilise "is-[SIZE] is-responsive" for Buttons
