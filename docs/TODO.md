@@ -2,12 +2,11 @@
 
 ## Current Priorities
 
-- [x] Reduced modal fade in/out animation duration
+- [x] Separate buttons/hotkeys for new game and quick restart with current settings
 - [ ] Add deck name to nav bar  - centred, and truncate if too long
 - [ ] Game over check
     - [ ] Let health go in to negative
     - [ ] Improve game over check, so that it only triggers once - Add a gameOverDismissed check or something along those lines? 
-- [ ] Separate modals/buttons/hotkeys for new game and quick restart with current settings
 - [ ] README - Screenshot
 - [ ] README - Support
 

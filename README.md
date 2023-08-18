@@ -10,10 +10,13 @@ Deployed [here](https://mowu-mtg.netlify.app/)
 
 ## Keyboard Controls
 
-    Increase Life Tracker - Up, W, Numpad+
-    Decrease Life Tracker - Down, S, Numpad-
-    Next Turn - Space, NumpadEnter
-    Restart/New Game - R
+| Action | Keys |
+| --- | --- |
+| Increase Life Tracker | Up, W, Numpad+ |
+| Decrease Life Tracker | Down, S, Numpad- |
+| Next turn | Space, NumpadEnter |
+| Open End Game Menu | Escape |
+| Quick Restart Game with current settings | Ctrl+Q |
 
 ## Features
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="has-background-grey-lighter">
+<html class="has-background-grey-lighter has-navbar-fixed-top">
 <head>
     <title>Mowu</title>
     <meta charset="utf-8"/>
@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- Nav Bar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <h1 class="navbar-item">Mowu</h1>
             <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
@@ -39,7 +39,7 @@
             <!-- Column 2 - Counters -->
             <div class="column counters is-narrow">
                 <div class="box">
-                    <button class="button is-info is-fullwidth" onclick="openModal('.restartGameMenuModal')">Restart</button>
+                    <button class="button is-info is-fullwidth" onclick="openModal('.endGameMenuModal')">End Game</button>
                 </div>
                 <!-- Turn Counter -->
                 <div class="box">
@@ -128,11 +128,11 @@
                             <label class="label difficultyLabel">Difficulty</label>
                             <div class="control difficultyControl">
                                 <div class="buttons difficulty has-addons">
-                                    <button class="button difficultyOff is-selected is-info" onclick="difficultyButtonClick('.difficultyOff',0)" >Off</button>
-                                    <button class="button difficultyEasy" onclick="difficultyButtonClick('.difficultyEasy',7)" >Easy</button>                                
-                                    <button class="button difficultyMedium" onclick="difficultyButtonClick('.difficultyMedium',5)" >Medium</button>
-                                    <button class="button difficultyHard" onclick="difficultyButtonClick('.difficultyHard',3)" >Hard</button>
-                                    <button class="button difficultyCustom" onclick="difficultyButtonClick('.difficultyCustom',0)" >Custom</button>
+                                    <button class="button is-responsive difficultyOff is-selected is-info" onclick="difficultyButtonClick('.difficultyOff',0)" >Off</button>
+                                    <button class="button is-responsive difficultyEasy" onclick="difficultyButtonClick('.difficultyEasy',7)" >Easy</button>                                
+                                    <button class="button is-responsive difficultyMedium" onclick="difficultyButtonClick('.difficultyMedium',5)" >Medium</button>
+                                    <button class="button is-responsive difficultyHard" onclick="difficultyButtonClick('.difficultyHard',3)" >Hard</button>
+                                    <button class="button is-responsive difficultyCustom" onclick="difficultyButtonClick('.difficultyCustom',0)" >Custom</button>
                                 </div>
                             </div>
                         </div>
@@ -157,16 +157,18 @@
         <!--button class="modal-close is-large" aria-label="close"></button-->
     </div>
     <!-- Confirm Restart Modal-->
-    <div class="modal restartGameMenuModal">
+    <div class="modal endGameMenuModal">
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="box">
-                <h1 class="title">Restart Game?</h1>
-                <h1 class="subtitle">End the current game and start a new one?</h1>
+                <h1 class="title">End Game?</h1>
+                <h1 class="subtitle">Start a new game, restart with the current settings or cancel</h1>
                 <hr/>
-                <div class="buttons restartGameMenuButtons">
-                    <button class="button is-half is-danger confirm" onclick="confirmRestartGame(1)">Restart</button>
-                    <button class="button is-half is-info dismiss" onclick="confirmRestartGame(0)">Cancel</button>
+                <div class="buttons endGameMenuButtons">
+                    <!-- Which of these should be confirm? or submit? -->
+                    <button class="button is-half is-success" onclick="confirmRestartGame('New Game')"><u>N</u>ew Game</button>
+                    <button class="button is-half is-danger" onclick="confirmRestartGame('Restart')"><u>R</u>estart</button>
+                    <button class="button is-half is-info dismiss" onclick="confirmRestartGame('Cancel')"><u>C</u>ancel</button>
                 </div>
             </div>
         </div>
@@ -177,11 +179,12 @@
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="box">
-                <h1 class="title">You won!</h1>
+                <h1 class="title">You won in <span>x<span> turns</h1>
                 <hr/>
                 <div class="buttons gameOverModalButtons">
-                    <button class="button is-half is-info confirm" onclick="confirmRestartGame(1)">Play Again?</button>
-                    <button class="button is-half dismiss" onclick="confirmRestartGame(0)">Return to game</button>
+                    <button class="button is-half is-success" onclick="confirmRestartGame('New Game')"><u>N</u>ew Game</button>
+                    <button class="button is-half is-danger" onclick="confirmRestartGame('Restart')"><u>R</u>estart</button>
+                    <button class="button is-half is-info dismiss" onclick="confirmRestartGame('Cancel')"><u>C</u>ancel</button>
                 </div>
             </div>
         </div>
@@ -205,9 +208,8 @@
                         <tr><td>Increase Life Tracker<br></td><td>Up, W, Numpad+<br></td></tr>
                         <tr><td>Decrease Life Tracker</td><td>Down, S, Numpad-</td></tr>
                         <tr><td>Next turn<br></td><td>Space, NumpadEnter</td></tr>
-                        <tr><td>Restart Game<br></td><td>R, N</td></tr>
-                        <tr><td>Menu: Yes/Confirm<br></td><td>Y, Space</td></tr>
-                        <tr><td>Menu: No/Dismiss<br></td><td>N, Escape<br></td></tr>
+                        <tr><td>Open End Game Menu<br></td><td>Escape</td></tr>
+                        <tr><td>Quick Restart Game with current settings<br></td><td>Ctrl+Q</td></tr>
                     </tbody>
                 </table>
                 <hr/>

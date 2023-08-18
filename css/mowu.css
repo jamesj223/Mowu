@@ -2,6 +2,10 @@
     min-width: 4ch;
 }
 
+.column.counters {
+    max-width: 410px;
+}
+
 .turnCounter {
     min-width: 3ch;
 }
@@ -20,11 +24,15 @@
 
 .magicCard {
     min-width: 100px;
-    max-width: 350px;
+    max-width: 370px;
 }
 
 .modal {
     --animate-duration: 0.5s;
+}
+
+.input.startingLifeInput, .input.difficultyInput {
+    min-width: 10ch;
 }
 
 .footer {

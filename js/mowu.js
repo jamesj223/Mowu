@@ -101,20 +101,24 @@ function changeTurnCounter(amount) {
 }
 
 // Generic Modal Open
-function openModal(objectOrSelector) {
+//function openModal(objectOrSelector) {
+function openModal(selector) {
 
     unbindInputs();
 
+    modal = document.querySelector(selector);
+
     // Parse obejectOrSelector and get relevant modal
-    if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String) {
-        modal = document.querySelector(objectOrSelector);
-    } else {
-        modal = objectOrSelector;
-    }
+    // if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String) {
+    //    modal = document.querySelector(objectOrSelector); 
+    // } else {
+    //     modal = objectOrSelector;
+    // }
     
     // Handle Animations
     animateCSS(modal, 'fadeIn').then((message) => {
-        bindInputs("menu");
+        //bindInputs("menu");
+        bindInputs(selector);
     });
     modal.classList.add('is-active');
 
@@ -141,29 +145,38 @@ function closeModal(objectOrSelector) {
 
 }
 
-// Confirm function for restartGameMenuModal
-function confirmRestartGame(bool) {
-    
-    // Get active modal, if any
+// Confirm function for endGameMenuModal
+function confirmRestartGame(optionString) {
+
     activeModal = document.querySelector('.modal.is-active');
     
-    if (bool) { 
-        // THIS WAS THE STUPID BUG! ARGH!
-        //openModal('.newGameMenuModal'); 
-        openNewGameModal();
+    switch(optionString) {
+        case "New Game":
+            openNewGameModal();
+            console.log("Switch: New Game")
+            break;
+        case "Restart":
+            resetGame();
+            console.log("Switch: Restart")
+            break;
+        case "Cancel":
+            console.log("Switch: Cancel")
+            break;
     }
-
     closeModal(activeModal);
 }
 
 // Helper function for confirmRestartGame and startNewGame
-function resetCounters() {
+function resetGame() {
     // Reset Counters
     turnCounter = 0;
     lifeTracker = startingLifeTotal;
     // Update HTML Elements
     lifeTrackerElement.innerHTML = lifeTracker;
     turnCounterElement.innerHTML = turnCounter;
+    // Dismiss all events and hide events coulumn
+    dismissEvent("ALL");
+
 }
 
 function openNewGameModal() {
@@ -255,10 +268,6 @@ function difficultyValueChange() {
 function startNewGame() {
     // Lock form inputs
     document.querySelector('.newGameMenuFieldset').disabled=true;
-    //$('.startingLifeInput').attr("disabled");
-    //$('.deckNameInput').attr("disabled");
-    //$(".buttons.difficulty").attr("disabled");
-    //$('.difficultyInput').attr("disabled");
 
     // Get/apply values from form
     startingLifeTotal = document.querySelector('.startingLifeInput').valueAsNumber;
@@ -269,10 +278,11 @@ function startNewGame() {
     // Save form values to previousGameSettings
     previousGameSettings = [startingLifeTotal, deckName, difficultySelector, difficultyNumber];
 
-    // Reset counters to starting values
-    resetCounters();
+    // Reset counters to starting values, and clear any events
+    resetGame();
 
     // Close new game modal
+    // Add check here? If new game menu modal is open, close it
     closeModal('.newGameMenuModal');
 }
 
@@ -367,19 +377,27 @@ function generateEvent() {
 
 function dismissEvent(eventID) {
 
-    // Housekeeping
-    eventBox = document.querySelector(eventID);
     eventsColumn = document.querySelector('.column.events');
 
-    // Remove event from column
-    eventsColumn.removeChild(eventBox);
+    // Reset mode
+    if (eventID == "ALL") {
+        while (eventsColumn.children.length > 1) {
+            eventsColumn.removeChild(eventsColumn.lastChild);
+        }
+        eventsColumn.classList.add('is-hidden');
+        document.querySelector('.noActiveEvents').classList.add('is-hidden');
+    }
+    // Normal mode
+    else {
+        eventBox = document.querySelector(eventID);
 
-    // Check if column has any more events, if not, unhide the "No active events" card
-    // Or just hide the whole column?
-    if (eventsColumn.children.length == 1)
-        //eventsColumn.classList.add('is-hidden');
-        document.querySelector('.noActiveEvents').classList.remove('is-hidden');
+        // Remove event from column
+        eventsColumn.removeChild(eventBox);
 
+        // Check if column has any more events, if not, unhide the "No active events" card
+        if (eventsColumn.children.length == 1)
+            document.querySelector('.noActiveEvents').classList.remove('is-hidden');
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -392,7 +410,7 @@ function inputMenuButtonHelper (selector) {
     // If there is one, click it.
     if (button) {
         button.click()
-        console.log(selector + " button clicked")
+        //console.log(selector + " button clicked")
     }
 
 }
@@ -405,22 +423,50 @@ function unbindInputs () {
 
 function bindInputs (mode) {
 
-    if (mode=="menu") {
-        // Bind menu inputs
-        Mousetrap.bind(['y','space'], function() { inputMenuButtonHelper(".confirm"); return false; }, 'keyup');
-        Mousetrap.bind(['n','escape'], function() {inputMenuButtonHelper(".dismiss"); return false; }, 'keyup');
-        Mousetrap.bind(['enter'], function() {inputMenuButtonHelper(".submit"); return false; }, 'keyup');
-        //console.log("Menu inputs bound")
-    } else if (mode=="gameplay") {
+    console.log("mode: " + mode)
+ 
+    switch (mode) {
+
         // Bind gameplay inputs    
-        Mousetrap.bind(["up","w", "+"], function() {changeLifeTracker(1)});
-        Mousetrap.bind(["down","s", "-"], function() {changeLifeTracker(-1)});
-        Mousetrap.bind(["space","enter"], function() {changeTurnCounter(1); return false; }, 'keyup');
-        //Mousetrap.bind(["",""], function() {changeTurnCounter(-1)});
-        Mousetrap.bind(["r"], function() { openModal('.restartGameMenuModal')}, 'keyup');
-        Mousetrap.bind(["/","?"],function() { openModal('.helpModal')});
-        Mousetrap.bind('ctrl+e', function() { generateEvent(); return false; });
-        //console.log("Gameplay inputs bound")
+        case "gameplay":
+            
+            // Life Tracker
+            Mousetrap.bind(["up","w", "+"], function() {changeLifeTracker(1)});
+            Mousetrap.bind(["down","s", "-"], function() {changeLifeTracker(-1)});
+
+            // Turn Counter
+            Mousetrap.bind(["space","enter"], function() {changeTurnCounter(1); return false; }, 'keyup');
+            //Mousetrap.bind(["",""], function() {changeTurnCounter(-1)});
+
+            // Open Restart/New Game Menu
+            Mousetrap.bind(['escape'], function() { openModal('.endGameMenuModal')}, 'keyup');
+            // Quick restart game with current settings
+            Mousetrap.bind('ctrl+q', function() { confirmRestartGame("Restart"); return false; });
+            // Help Menu
+            Mousetrap.bind(["/","?"], function() { openModal('.helpModal'); return false;});
+            // Test/Debug
+            Mousetrap.bind('ctrl+e', function() { generateEvent(); return false; });
+
+            break;
+
+        // Bind newGameMenuModal 
+        case ".helpModal":  
+        case ".newGameMenuModal":
+            // Confirm, Dismiss, Submit
+            Mousetrap.bind(['Y','y','space'], function() { inputMenuButtonHelper(".confirm"); return false; }, 'keyup');
+            Mousetrap.bind(['N','n','escape'], function() {inputMenuButtonHelper(".dismiss"); return false; }, 'keyup');
+            Mousetrap.bind(['enter'], function() {inputMenuButtonHelper(".submit"); return false; }, 'keyup');
+            break;
+
+        case ".endGameMenuModal":
+        case ".gameOverModal":
+            // Underscored first letter button hotkeys thing
+            Mousetrap.bind(['N','n'], function() { confirmRestartGame('New Game'); return false; }, 'keyup');
+            Mousetrap.bind(['R','r'], function() { confirmRestartGame('Restart'); return false; }, 'keyup');
+            Mousetrap.bind(['C','c', 'escape'], function() { confirmRestartGame('Cancel'); return false; }, 'keyup');
+            break;
+
+
     }   
 
 }
