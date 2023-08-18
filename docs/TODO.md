@@ -2,7 +2,7 @@
 
 ## Current Priorities
 
-- [x] Separate buttons/hotkeys for new game and quick restart with current settings
+- [ ] Fix footer behaviour once events go past bottom of page
 - [ ] Add deck name to nav bar  - centred, and truncate if too long
 - [ ] Game over check
     - [ ] Let health go in to negative

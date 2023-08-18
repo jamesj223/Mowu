@@ -153,17 +153,15 @@ function confirmRestartGame(optionString) {
     switch(optionString) {
         case "New Game":
             openNewGameModal();
-            console.log("Switch: New Game")
             break;
         case "Restart":
             resetGame();
-            console.log("Switch: Restart")
             break;
         case "Cancel":
-            console.log("Switch: Cancel")
             break;
     }
-    closeModal(activeModal);
+    if (activeModal)
+        closeModal(activeModal);
 }
 
 // Helper function for confirmRestartGame and startNewGame
@@ -185,10 +183,6 @@ function openNewGameModal() {
 
     // Unlock form inputs 
     document.querySelector('.newGameMenuFieldset').disabled=false;
-    //$('.startingLifeInput').removeAttr("disabled");
-    //$('.deckNameInput').removeAttr("disabled");
-    //$(".buttons.difficulty").removeAttr("disabled");
-    //$('.difficultyInput').removeAttr("disabled");
 
     // If previous game settings exist, populate these as default
     if (previousGameSettings.length)
@@ -201,9 +195,6 @@ function openNewGameModal() {
 
     //Remove any existing data
     deckNameDataList.replaceChildren();
-    //while (deckNameDataList.firstChild) {
-    //  deckNameDataList.firstChild.remove()
-    //}
 
     // Get stored deck names - Placeholder until we have storage sorted out
     deckNameOptions = ["Food and Fellowship", "Riders of Rohan", "Elven Council", "Hosts of Mordor"];
@@ -330,7 +321,7 @@ function generateEvent() {
 
     // Housekeeping
     eventID = randomEventID(5);
-    eventsColumn = document.querySelector('.column.events');
+    mainColumns = document.querySelector('.mainColumns');
 
     // Choose Event Type
     // Todo
@@ -348,8 +339,8 @@ function generateEvent() {
     eventCardImageString = "images/events/" + eventType + "/" + chosenEventImage
 
     // Create ~box~ message
-    eventMessage = createElementFromTemplate(
-        `<article class="message magicCard is-light" id="${eventID}">
+    eventColumn = createElementFromTemplate(
+        `<div class="column eventsSubColumn is-narrow is-one-third" id="${eventID}"><article class="message magicCard is-light">
             <div class="message-header">
                 <p>Event</p>
                 <button class="delete" aria-label="delete" onclick="dismissEvent('#${eventID}')"></button>
@@ -359,17 +350,18 @@ function generateEvent() {
                     <img src="${eventCardImageString}" alt="${chosenEventName}">
                 </figure>
             </div>
-        </article>`
+        </article></div>`
         );
     
     // Add box to column
-    eventsColumn.appendChild(eventMessage);
+    mainColumns.appendChild(eventColumn);
     
     // Hide "No active events" card
-    document.querySelector('.noActiveEvents').classList.add('is-hidden');
+    //document.querySelector('.noActiveEvents').classList.add('is-hidden');
 
     // Unhide column
-    eventsColumn.classList.remove('is-hidden');
+    //eventsColumn.classList.remove('is-hidden');
+    //eventsColumnSuper.classList.remove('is-hidden');
 
     // Todo
 
@@ -377,26 +369,26 @@ function generateEvent() {
 
 function dismissEvent(eventID) {
 
-    eventsColumn = document.querySelector('.column.events');
+    mainColumns = document.querySelector('.mainColumns');
 
     // Reset mode
     if (eventID == "ALL") {
-        while (eventsColumn.children.length > 1) {
-            eventsColumn.removeChild(eventsColumn.lastChild);
+        while (mainColumns.children.length > 1) {
+            mainColumns.removeChild(mainColumns.lastChild);
         }
-        eventsColumn.classList.add('is-hidden');
-        document.querySelector('.noActiveEvents').classList.add('is-hidden');
+        //mainColumns.classList.add('is-hidden');
+        //document.querySelector('.noActiveEvents').classList.add('is-hidden');
     }
     // Normal mode
     else {
         eventBox = document.querySelector(eventID);
 
         // Remove event from column
-        eventsColumn.removeChild(eventBox);
+        mainColumns.removeChild(eventBox);
 
         // Check if column has any more events, if not, unhide the "No active events" card
-        if (eventsColumn.children.length == 1)
-            document.querySelector('.noActiveEvents').classList.remove('is-hidden');
+        //if (eventsColumn.children.length == 1)
+        //    document.querySelector('.noActiveEvents').classList.remove('is-hidden');
     }
 }
 
@@ -423,7 +415,7 @@ function unbindInputs () {
 
 function bindInputs (mode) {
 
-    console.log("mode: " + mode)
+    //console.log("bindInputs(" + mode + ")")
  
     switch (mode) {
 
