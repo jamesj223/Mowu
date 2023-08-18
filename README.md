@@ -41,7 +41,7 @@ A full list of ideas/potential features can be found in [here](docs/TODO.md)
 
 ## Support
 
-If you like Mowu, please consider supporting it by starring this GitHub page, <!-- donating [INSERT DONATION THING HERE] "buy me a coffee" or one of those kind of pages,--> or by telling your friends about it.
+If you like Mowu, please consider supporting it by starring this GitHub page, [buy me a coffee](https://www.buymeacoffee.com/jamesj223) or by telling your friends about it.
 
 ## License
 

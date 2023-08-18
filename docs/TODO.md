@@ -7,8 +7,7 @@
 - [ ] Game over check
     - [ ] Let health go in to negative
     - [ ] Improve game over check, so that it only triggers once - Add a gameOverDismissed check or something along those lines? 
-- [ ] README - Screenshot
-- [ ] README - Support
+- [ ] README - Screenshots
 
 ## Full feature backlog
 
