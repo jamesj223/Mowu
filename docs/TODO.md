@@ -3,7 +3,7 @@
 ## Current Priorities
 
 - [ ] Fix footer behaviour once events go past bottom of page
-- [ ] Add deck name to nav bar  - centred, and truncate if too long
+- [ ] Add deck name to nav bar - centred, and truncate if too long
 - [ ] Game over check
     - [ ] Let health go in to negative
     - [ ] Improve game over check, so that it only triggers once - Add a gameOverDismissed check or something along those lines? 

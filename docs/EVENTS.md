@@ -49,6 +49,8 @@ Nothing here yet
 
 ## Migrated from TODO
 
+- [ ] Get card images from Scryfall?
+    - [ ] Cache them locally?
 - [ ] Weighted Probabilities for each category and for each event within that category
 - [ ] Basic Events - Events that don't require player health tracking
     - [ ] Board wipe (creatures, artifacts?)
