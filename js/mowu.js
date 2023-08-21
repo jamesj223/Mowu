@@ -74,7 +74,8 @@ function deltaHelper(amount) {
         lifeDeltaElement.classList.remove('has-text-black')
         // Animate Life Tracker to let user know delta has finished
         // Can't decide between flash or headShake
-        animateCSS(lifeTrackerElement, 'headShake').then((message) => {
+        lifeBoxElement = document.querySelector('.lifeBox')
+        animateCSS(lifeBoxElement, 'headShake').then((message) => {
             //Check if lifeTracker has reached 0
             if (lifeTracker == 0) {
                 openModal('.gameOverModal')
@@ -98,6 +99,9 @@ function changeTurnCounter(amount) {
     turnCounter += amount;
     turnCounter = Math.max(turnCounter, 0);
     turnCounterElement.innerHTML = turnCounter;
+    turnBoxElement = document.querySelector('.turnBox')
+
+    animateCSS(turnBoxElement, 'headShake');
 }
 
 // Generic Modal Open

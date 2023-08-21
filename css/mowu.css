@@ -6,7 +6,12 @@
     max-width: 410px;
 }
 
-.turnCounter {
+
+.turnBox, .lifeBox {
+    --animate-duration: 0.5s;
+}
+
+.turnCounter, .lifeTracker {
     min-width: 3ch;
 }
 
@@ -15,11 +20,6 @@
     --animate-delay: 1s;
     --animate-duration: 1s;
     animation-composition: replace;
-}
-
-.lifeTracker {
-    min-width: 3ch;
-    --animate-duration: 0.5s;
 }
 
 .magicCard {
