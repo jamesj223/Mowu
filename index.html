@@ -157,8 +157,9 @@
         <div class="modal-content">
             <div class="box">
                 <h1 class="title">End Game?</h1>
-                <h1 class="subtitle">Start a new game, restart with the current settings or cancel</h1>
-                <hr/>
+                <hr/>   
+                <p>Start a new game, restart with the same settings or cancel and return to current game</p>
+                <hr/>  
                 <div class="buttons endGameMenuButtons">
                     <!-- Which of these should be confirm? or submit? -->
                     <button class="button is-half is-success" onclick="confirmRestartGame('New Game')"><u>N</u>ew Game</button>
@@ -174,8 +175,12 @@
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="box">
-                <h1 class="title">You won in <span>x</span> turns</h1>
-                <hr/>
+                <h1 class="title">You won!</h1>
+                <h2 class="subtitle">You did <span class="gameOverDamageSpan">x</span> damage in <span class="gameOverTurnsSpan">x</span> turns!</h2>
+
+                <hr/>   
+                <p>Start a new game, restart with the same settings or cancel and return to current game</p>
+                <hr/>  
                 <div class="buttons gameOverModalButtons">
                     <button class="button is-half is-success" onclick="confirmRestartGame('New Game')"><u>N</u>ew Game</button>
                     <button class="button is-half is-danger" onclick="confirmRestartGame('Restart')"><u>R</u>estart</button>

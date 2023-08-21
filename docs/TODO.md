@@ -2,17 +2,18 @@
 
 ## Current Priorities
 
-- [x] Add animation to turn counter change
+- [x] Game over check
+    - [x] Let health go in to negative
+    - [x] Improve game over check, so that it only triggers once - Add a gameOverDismissed 
 - [ ] Fix footer behaviour once events go past bottom of page
 - [ ] Add deck name to nav bar - centred, and truncate if too long
     - [ ] Test behaviour on desktop and mobile screen sizes
-- [ ] Game over check
-    - [ ] Let health go in to negative
-    - [ ] Improve game over check, so that it only triggers once - Add a gameOverDismissed check or something along those lines? 
+check or something along those lines? 
 - [ ] README - Screenshots
 
 ## Full feature backlog
 
+- [ ] Click on event to open zoomed in card image in a modal
 - [ ] Menu (and navbar?)
     - [x] New game
         - [x] Starting health

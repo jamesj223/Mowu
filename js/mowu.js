@@ -28,13 +28,15 @@ const defaultGameSettings = [40, "", ".difficultyOff", 0];
 var previousGameSettings = [];
 //var previousGameSettings = [111,"Bilbo's Birthday Bash", ".difficultyCustom", 42];
 
+var gameOverCheck = true;
+
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 
 // Life Tracker
 function changeLifeTracker(amount) {
     lifeTracker += amount;
-    lifeTracker = Math.max(lifeTracker, 0);
+    //lifeTracker = Math.max(lifeTracker, 0);
     lifeTrackerElement.innerHTML = lifeTracker;
     deltaHelper(amount);
 }
@@ -77,7 +79,10 @@ function deltaHelper(amount) {
         lifeBoxElement = document.querySelector('.lifeBox')
         animateCSS(lifeBoxElement, 'headShake').then((message) => {
             //Check if lifeTracker has reached 0
-            if (lifeTracker == 0) {
+            if (lifeTracker <= 0 && gameOverCheck) {
+                gameOverCheck = false;
+                document.querySelector(".gameOverDamageSpan").innerHTML = Math.abs(lifeTracker - previousGameSettings[0]);
+                document.querySelector(".gameOverTurnsSpan").innerHTML = turnCounter;
                 openModal('.gameOverModal')
             }
         });
@@ -178,6 +183,8 @@ function resetGame() {
     turnCounterElement.innerHTML = turnCounter;
     // Dismiss all events and hide events coulumn
     dismissEvent("ALL");
+    // Turn game over check back on
+    gameOverCheck = true;
 
 }
 
