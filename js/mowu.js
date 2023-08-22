@@ -209,6 +209,8 @@ function openNewGameModal() {
 
     // Get stored deck names - Placeholder until we have storage sorted out
     deckNameOptions = ["Food and Fellowship", "Riders of Rohan", "Elven Council", "Hosts of Mordor"];
+    // Adding super long deck name for testing
+    deckNameOptions.push("Asmoranomardicadaistinaculdacar and Our Market Research Shows That Players Like Really Long Card Names So We Made this Card to Have the Absolute Longest Card Name Ever Elemental");
 
     //PopulateDeckName datalist with data from deckNameOptions
     for (let i = 0; i < deckNameOptions.length; i++) {
@@ -283,9 +285,28 @@ function startNewGame() {
     // Reset counters to starting values, and clear any events
     resetGame();
 
+    // Update Navbar with Deck Name
+    truncateNavBarDeckName();
+
     // Close new game modal
     // Add check here? If new game menu modal is open, close it
     closeModal('.newGameMenuModal');
+}
+
+var resizeId;
+$(window).resize(function() {
+    clearTimeout(resizeId);
+    resizeId = setTimeout(truncateNavBarDeckName, 500);
+});
+
+function truncateNavBarDeckName(){
+    // Update Navbar with Deck Name
+    navBarWidth = Math.floor(document.querySelector('.navbar').offsetWidth/10) - 10 ;
+    deckNameString = previousGameSettings[1];
+    if (deckNameString.length > navBarWidth) {
+        deckNameString = deckNameString.substring(0, navBarWidth) + "...";
+    }
+    document.querySelector('.deckName').innerHTML = deckNameString;
 }
 
 // Add animation to an element, then remove it once the animation ends
@@ -351,7 +372,7 @@ function generateEvent() {
 
     // Create ~box~ message
     eventColumn = createElementFromTemplate(
-        `<div class="column eventsSubColumn is-narrow is-one-third" id="${eventID}"><article class="message magicCard is-light">
+        `<div class="column eventsSubColumn is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd" id="${eventID}"><article class="message magicCard is-light">
             <div class="message-header">
                 <p>Event</p>
                 <button class="delete" aria-label="delete" onclick="dismissEvent('#${eventID}')"></button>

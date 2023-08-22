@@ -1,3 +1,9 @@
+.deckName {
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .columnTwoCardTitle {
     min-width: 4ch;
 }
@@ -5,7 +11,6 @@
 .column.counters {
     max-width: 410px;
 }
-
 
 .turnBox, .lifeBox {
     --animate-duration: 0.5s;

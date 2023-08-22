@@ -18,6 +18,7 @@
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <h1 class="navbar-item">Mowu</h1>
+            <h1 class="navbar-item deckName"></h1>
             <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -33,55 +34,57 @@
     <!-- End of Nav Bar -->
     <!-- Main Section -->
     <section class="section">
-        <div class="columns mainColumns is-desktop is-centered is-multiline">
-            <!-- Column 1 - Left Paddng -->
-            <!-- div class="column padding-left is-1"></div -->
-            <!-- Column 2 - Counters -->
-            <div class="column counters is-narrow">
-                <div class="box">
-                    <button class="button is-info is-fullwidth" onclick="openModal('.endGameMenuModal')">End Game</button>
-                </div>
-                <!-- Turn Counter -->
-                <div class="box turnBox">
-                    <div class="columns is-mobile">
-                        <div class="column is-8">
-                            <h1 class="title columnTwoCardTitle has-text-centered">Turn</h1>
-                            <hr/>
-                            <div class="columns is-mobile">
-                                <div class="column"></div>
-                                <div class="column"><h2 class="subtitle has-text-centered turnCounter">0</h2></div>
-                                <div class="column"></div>
+        <div class="container">
+            <div class="columns mainColumns is-centered is-mobile is-multiline">
+                <!-- Column 1 - Left Paddng -->
+                <!-- div class="column padding-left is-1"></div -->
+                <!-- Column 2 - Counters -->
+                <div class="column counters is-narrow">
+                    <div class="box">
+                        <button class="button is-info is-fullwidth" onclick="openModal('.endGameMenuModal')">End Game</button>
+                    </div>
+                    <!-- Turn Counter -->
+                    <div class="box turnBox">
+                        <div class="columns is-mobile">
+                            <div class="column is-8">
+                                <h1 class="title columnTwoCardTitle has-text-centered">Turn</h1>
+                                <hr/>
+                                <div class="columns is-mobile">
+                                    <div class="column"></div>
+                                    <div class="column"><h2 class="subtitle has-text-centered turnCounter">0</h2></div>
+                                    <div class="column"></div>
+                                </div>
+                                
                             </div>
-                            
+                            <div class="column is-4">
+                                <button class="button is-success is-medium my-1" onclick="changeTurnCounter(1)"><span><i class="fa fa-plus"></i></span></button>
+                                <button class="button is-danger is-medium my-1" onclick="changeTurnCounter(-1)"><span><i class="fa fa-minus"></i></span></button>
+                            </div>
                         </div>
-                        <div class="column is-4">
-                            <button class="button is-success is-medium my-1" onclick="changeTurnCounter(1)"><span><i class="fa fa-plus"></i></span></button>
-                            <button class="button is-danger is-medium my-1" onclick="changeTurnCounter(-1)"><span><i class="fa fa-minus"></i></span></button>
+                    </div>
+                    <!-- Life Tracker-->
+                    <div class="box lifeBox">
+                        <div class="columns is-mobile">
+                            <div class="column is-8">
+                                <h1 class="title columnTwoCardTitle has-text-centered">Life</h1>
+                                <hr/>
+                                <div class="columns is-mobile">
+                                    <div class="column"></div>
+                                    <div class="column"><h2 class="subtitle has-text-centered lifeTracker">40</h2></div>
+                                    <div class="column"><h2 class="subtitle has-text-centered lifeDelta has-text-white animate__delay-1s">100</h2></div>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <button class="button is-success is-medium my-1" onclick="changeLifeTracker(1)"><span><i class="fa fa-plus"></i></span></button>
+                                <button class="button is-danger is-medium my-1" onclick="changeLifeTracker(-1)"><span><i class="fa fa-minus"></i></span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Life Tracker-->
-                <div class="box lifeBox">
-                    <div class="columns is-mobile">
-                        <div class="column is-8">
-                            <h1 class="title columnTwoCardTitle has-text-centered">Life</h1>
-                            <hr/>
-                            <div class="columns is-mobile">
-                                <div class="column"></div>
-                                <div class="column"><h2 class="subtitle has-text-centered lifeTracker">40</h2></div>
-                                <div class="column"><h2 class="subtitle has-text-centered lifeDelta has-text-white animate__delay-1s">100</h2></div>
-                            </div>
-                        </div>
-                        <div class="column is-4">
-                            <button class="button is-success is-medium my-1" onclick="changeLifeTracker(1)"><span><i class="fa fa-plus"></i></span></button>
-                            <button class="button is-danger is-medium my-1" onclick="changeLifeTracker(-1)"><span><i class="fa fa-minus"></i></span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Column 4 - Right Padding -->
-            <!-- div class="column padding-right is-1"></div -->
+                <!-- Column 4 - Right Padding -->
+                <!-- div class="column padding-right is-1"></div -->
+            </div>
         </div>
     </section>
     <!-- End of Main Section -->
