@@ -2,12 +2,9 @@
 
 ## Current Priorities
 
-- [x] Game over check
-    - [x] Let health go in to negative
-    - [x] Improve game over check, so that it only triggers once - Add a gameOverDismissed 
-- [ ] Fix footer behaviour once events go past bottom of page
 - [ ] Add deck name to nav bar - centred, and truncate if too long
     - [ ] Test behaviour on desktop and mobile screen sizes
+- [ ] Fix footer behaviour once events go past bottom of page
 check or something along those lines? 
 - [ ] README - Screenshots
 
@@ -25,6 +22,7 @@ check or something along those lines?
     - [ ] View Stats
 - [x] Confirm before restarting when game in progress
     - [ ] Same but for exiting/closing the tab? Or too annoying
+- [ ] Repeat for on screen button press
 - [ ] Progressive key down repeat rate (start slowly, then progressively get faster)
     - [ ] For on screen buttons as well
 - [ ] Local storage (IndexedDB?)
