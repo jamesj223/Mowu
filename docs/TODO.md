@@ -2,14 +2,15 @@
 
 ## Current Priorities
 
-- [ ] Add deck name to nav bar - centred, and truncate if too long
-    - [ ] Test behaviour on desktop and mobile screen sizes
-- [ ] Fix footer behaviour once events go past bottom of page
-check or something along those lines? 
+- [x] Added deck name to nav bar - centred on mobile, and will truncate if too long
+- [x] Fixed footer behaviour once events go past bottom of page
+- [x] Added placeholder logo image for navbar brand
 - [ ] README - Screenshots
 
 ## Full feature backlog
 
+- [ ] Show difficulty on Navbar
+- [ ] Ctrl + Arrows for change life 5 or 10 at a time
 - [ ] Click on event to open zoomed in card image in a modal
 - [ ] Menu (and navbar?)
     - [x] New game

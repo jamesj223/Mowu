@@ -17,7 +17,7 @@
     <!-- Nav Bar -->
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <h1 class="navbar-item">Mowu</h1>
+            <h1 class="navbar-item"><img src="images/logo.png" width="112" height="28"></h1>
             <h1 class="navbar-item deckName"></h1>
             <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
@@ -33,12 +33,10 @@
     </nav>
     <!-- End of Nav Bar -->
     <!-- Main Section -->
-    <section class="section">
+    <section class="section mainSection">
         <div class="container">
             <div class="columns mainColumns is-centered is-mobile is-multiline">
-                <!-- Column 1 - Left Paddng -->
-                <!-- div class="column padding-left is-1"></div -->
-                <!-- Column 2 - Counters -->
+                <!-- Column 1 - Counters -->
                 <div class="column counters is-narrow">
                     <div class="box">
                         <button class="button is-info is-fullwidth" onclick="openModal('.endGameMenuModal')">End Game</button>
@@ -81,147 +79,147 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Column 4 - Right Padding -->
-                <!-- div class="column padding-right is-1"></div -->
+                <!-- Column 2 - Events -->
             </div>
         </div>
     </section>
     <!-- End of Main Section -->
-    <!-- Modals -->
-    <!-- New Game Menu Modal-->
-    <div class="modal newGameMenuModal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <h1 class="title">New Game Menu</h1>
-                <hr/>
-                <fieldset class="newGameMenuFieldset">
-                    <!-- Starting Life -->
-                    <div class="field startingLifeField">
-                        <label class="label startingLifeLabel">Starting Life</label>
-                        <div class="control startingLifeControl">
-                            <input class="input startingLifeInput" type="number" value="40" style="width:15%">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="box has-background-grey-lighter">
-                        <h1 class="subtitle">Coming Soon</h1>
-                        <!-- Deck Name -->
-                        <div class="field deckNameField">
-                            <label class="label deckNameLabel">Deck</label>
-                            <div class="control deckNameControl">
-                                <input class="input deckNameInput" type="text" list="deckName" placeholder="Select from previously used decks or enter new deck name">
-                                <datalist class="datalist deckNameDataList" id="deckName">
-                                    <option>These</option>
-                                    <option>Should</option>
-                                    <option>Get</option>
-                                    <option>Automatically</option>
-                                    <option>Replaced</option>
-                                </datalist>
+    <!-- Modals Section -->
+    <section class="section modalsSection">
+        <!-- New Game Menu Modal-->
+        <div class="modal newGameMenuModal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <h1 class="title">New Game Menu</h1>
+                    <hr/>
+                    <fieldset class="newGameMenuFieldset">
+                        <!-- Starting Life -->
+                        <div class="field startingLifeField">
+                            <label class="label startingLifeLabel">Starting Life</label>
+                            <div class="control startingLifeControl">
+                                <input class="input startingLifeInput" type="number" value="40" style="width:15%">
                             </div>
                         </div>
-                        <!-- Difficulty -->
-                        <div class="field difficultyField">
-                            <label class="label difficultyLabel">Difficulty</label>
-                            <div class="control difficultyControl">
-                                <div class="buttons difficulty has-addons">
-                                    <button class="button is-responsive difficultyOff is-selected is-info" onclick="difficultyButtonClick('.difficultyOff',0)" >Off</button>
-                                    <button class="button is-responsive difficultyEasy" onclick="difficultyButtonClick('.difficultyEasy',7)" >Easy</button>                                
-                                    <button class="button is-responsive difficultyMedium" onclick="difficultyButtonClick('.difficultyMedium',5)" >Medium</button>
-                                    <button class="button is-responsive difficultyHard" onclick="difficultyButtonClick('.difficultyHard',3)" >Hard</button>
-                                    <button class="button is-responsive difficultyCustom" onclick="difficultyButtonClick('.difficultyCustom',0)" >Custom</button>
+                        <hr>
+                        <div class="box has-background-grey-lighter">
+                            <h1 class="subtitle">Coming Soon</h1>
+                            <!-- Deck Name -->
+                            <div class="field deckNameField">
+                                <label class="label deckNameLabel">Deck</label>
+                                <div class="control deckNameControl">
+                                    <input class="input deckNameInput" type="text" list="deckName" placeholder="Select from previously used decks or enter new deck name">
+                                    <datalist class="datalist deckNameDataList" id="deckName">
+                                        <option>These</option>
+                                        <option>Should</option>
+                                        <option>Get</option>
+                                        <option>Automatically</option>
+                                        <option>Replaced</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <!-- Difficulty -->
+                            <div class="field difficultyField">
+                                <label class="label difficultyLabel">Difficulty</label>
+                                <div class="control difficultyControl">
+                                    <div class="buttons difficulty has-addons">
+                                        <button class="button is-responsive difficultyOff is-selected is-info" onclick="difficultyButtonClick('.difficultyOff',0)" >Off</button>
+                                        <button class="button is-responsive difficultyEasy" onclick="difficultyButtonClick('.difficultyEasy',7)" >Easy</button>                                
+                                        <button class="button is-responsive difficultyMedium" onclick="difficultyButtonClick('.difficultyMedium',5)" >Medium</button>
+                                        <button class="button is-responsive difficultyHard" onclick="difficultyButtonClick('.difficultyHard',3)" >Hard</button>
+                                        <button class="button is-responsive difficultyCustom" onclick="difficultyButtonClick('.difficultyCustom',0)" >Custom</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Events -->
+                            <div class="field">
+                                <label class="label eventsLabel">Random events every <span class="eventsLabelSpan">0</span> turns</label>
+                                <div class="control">
+                                    <input class="input difficultyInput is-flex-grow-1" type="number" value="0" style="width:15%" onchange="difficultyValueChange()" disabled>
                                 </div>
                             </div>
                         </div>
-                        <!-- Events -->
-                        <div class="field">
-                            <label class="label eventsLabel">Random events every <span class="eventsLabelSpan">0</span> turns</label>
+                        <!-- Submit Button -->
+                        <div class="field is-grouped">
                             <div class="control">
-                                <input class="input difficultyInput is-flex-grow-1" type="number" value="0" style="width:15%" onchange="difficultyValueChange()" disabled>
+                                <button class="button is-half is-info submit" onclick="startNewGame()">Start Game</button>
                             </div>
                         </div>
+                        <!-- End of Fields -->
+                    </fieldset>
+                </div>
+            </div>
+            <!--button class="modal-close is-large" aria-label="close"></button-->
+        </div>
+        <!-- Confirm Restart Modal-->
+        <div class="modal endGameMenuModal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <h1 class="title">End Game?</h1>
+                    <hr/>   
+                    <p>Start a new game, restart with the same settings or cancel and return to current game</p>
+                    <hr/>  
+                    <div class="buttons endGameMenuButtons">
+                        <!-- Which of these should be confirm? or submit? -->
+                        <button class="button is-half is-success" onclick="confirmRestartGame('New Game')"><u>N</u>ew Game</button>
+                        <button class="button is-half is-danger" onclick="confirmRestartGame('Restart')"><u>R</u>estart</button>
+                        <button class="button is-half is-info dismiss" onclick="confirmRestartGame('Cancel')"><u>C</u>ancel</button>
                     </div>
-                    <!-- Submit Button -->
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-half is-info submit" onclick="startNewGame()">Start Game</button>
-                        </div>
+                </div>
+            </div>
+            <!--button class="modal-close is-large" aria-label="close" onclick="confirmNewGame(0)"></button-->
+        </div>
+        <!-- Game Over Modal-->
+        <div class="modal gameOverModal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <h1 class="title">You won!</h1>
+                    <h2 class="subtitle">You did <span class="gameOverDamageSpan">x</span> damage in <span class="gameOverTurnsSpan">x</span> turns!</h2>
+
+                    <hr/>   
+                    <p>Start a new game, restart with the same settings or cancel and return to current game</p>
+                    <hr/>  
+                    <div class="buttons gameOverModalButtons">
+                        <button class="button is-half is-success" onclick="confirmRestartGame('New Game')"><u>N</u>ew Game</button>
+                        <button class="button is-half is-danger" onclick="confirmRestartGame('Restart')"><u>R</u>estart</button>
+                        <button class="button is-half is-info dismiss" onclick="confirmRestartGame('Cancel')"><u>C</u>ancel</button>
                     </div>
-                    <!-- End of Fields -->
-                </fieldset>
+                </div>
             </div>
         </div>
         <!--button class="modal-close is-large" aria-label="close"></button-->
-    </div>
-    <!-- Confirm Restart Modal-->
-    <div class="modal endGameMenuModal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <h1 class="title">End Game?</h1>
-                <hr/>   
-                <p>Start a new game, restart with the same settings or cancel and return to current game</p>
-                <hr/>  
-                <div class="buttons endGameMenuButtons">
-                    <!-- Which of these should be confirm? or submit? -->
-                    <button class="button is-half is-success" onclick="confirmRestartGame('New Game')"><u>N</u>ew Game</button>
-                    <button class="button is-half is-danger" onclick="confirmRestartGame('Restart')"><u>R</u>estart</button>
-                    <button class="button is-half is-info dismiss" onclick="confirmRestartGame('Cancel')"><u>C</u>ancel</button>
+        <!-- Help Modal-->
+        <div class="modal helpModal">
+            <div class="modal-background" onclick="closeModal('.helpModal')"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <h1 class="title">Help Menu</h1>
+                    <hr/>
+                    <h2 class="subtitle">About Mowu</h2>
+                    <p>Mowu is a Magic: The Gathering goldfishing web app.</p>
+                    <p>Playtest your MTG decks! Track turn count and life total. Play out your turns and see how long it takes you to deal 40 damage to an opponent.</p>
+                    <hr/>
+                    <h2 class="subtitle">Hotkeys</h2>
+                    <table class="table is-striped is-narrow is-hoverable is-fullwidth">
+                        <thead><tr><th>Action</th><th>Keys</th></tr></thead>
+                        <tbody>
+                            <tr><td>Increase Life Tracker<br></td><td>Up, W, Numpad+<br></td></tr>
+                            <tr><td>Decrease Life Tracker</td><td>Down, S, Numpad-</td></tr>
+                            <tr><td>Next turn<br></td><td>Space, NumpadEnter</td></tr>
+                            <tr><td>Open End Game Menu<br></td><td>Escape</td></tr>
+                            <tr><td>Quick Restart Game with current settings<br></td><td>Ctrl+Q</td></tr>
+                        </tbody>
+                    </table>
+                    <hr/>
+                    <button class="button is-half is-info confirm submit dismiss" onclick="closeModal('.helpModal')">Close</button>
                 </div>
             </div>
+            <button class="modal-close is-large" aria-label="close" onclick="closeModal('.helpModal')"></button>
         </div>
-        <!--button class="modal-close is-large" aria-label="close" onclick="confirmNewGame(0)"></button-->
-    </div>
-    <!-- Game Over Modal-->
-    <div class="modal gameOverModal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <h1 class="title">You won!</h1>
-                <h2 class="subtitle">You did <span class="gameOverDamageSpan">x</span> damage in <span class="gameOverTurnsSpan">x</span> turns!</h2>
-
-                <hr/>   
-                <p>Start a new game, restart with the same settings or cancel and return to current game</p>
-                <hr/>  
-                <div class="buttons gameOverModalButtons">
-                    <button class="button is-half is-success" onclick="confirmRestartGame('New Game')"><u>N</u>ew Game</button>
-                    <button class="button is-half is-danger" onclick="confirmRestartGame('Restart')"><u>R</u>estart</button>
-                    <button class="button is-half is-info dismiss" onclick="confirmRestartGame('Cancel')"><u>C</u>ancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--button class="modal-close is-large" aria-label="close"></button-->
-    <!-- Help Modal-->
-    <div class="modal helpModal">
-        <div class="modal-background" onclick="closeModal('.helpModal')"></div>
-        <div class="modal-content">
-            <div class="box">
-                <h1 class="title">Help Menu</h1>
-                <hr/>
-                <h2 class="subtitle">About Mowu</h2>
-                <p>Mowu is a Magic: The Gathering goldfishing web app.</p>
-                <p>Playtest your MTG decks! Track turn count and life total. Play out your turns and see how long it takes you to deal 40 damage to an opponent.</p>
-                <hr/>
-                <h2 class="subtitle">Hotkeys</h2>
-                <table class="table is-striped is-narrow is-hoverable is-fullwidth">
-                    <thead><tr><th>Action</th><th>Keys</th></tr></thead>
-                    <tbody>
-                        <tr><td>Increase Life Tracker<br></td><td>Up, W, Numpad+<br></td></tr>
-                        <tr><td>Decrease Life Tracker</td><td>Down, S, Numpad-</td></tr>
-                        <tr><td>Next turn<br></td><td>Space, NumpadEnter</td></tr>
-                        <tr><td>Open End Game Menu<br></td><td>Escape</td></tr>
-                        <tr><td>Quick Restart Game with current settings<br></td><td>Ctrl+Q</td></tr>
-                    </tbody>
-                </table>
-                <hr/>
-                <button class="button is-half is-info confirm submit dismiss" onclick="closeModal('.helpModal')">Close</button>
-            </div>
-        </div>
-        <button class="modal-close is-large" aria-label="close" onclick="closeModal('.helpModal')"></button>
-    </div>
-    <!-- End of Modals  -->
+    </section>
+    <!-- End of Modals Section -->
     <!-- Footer -->
     <footer class="footer">
         <div class="container">

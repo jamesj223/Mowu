@@ -116,13 +116,6 @@ function openModal(selector) {
     unbindInputs();
 
     modal = document.querySelector(selector);
-
-    // Parse obejectOrSelector and get relevant modal
-    // if (typeof objectOrSelector === 'string' || objectOrSelector instanceof String) {
-    //    modal = document.querySelector(objectOrSelector); 
-    // } else {
-    //     modal = objectOrSelector;
-    // }
     
     // Handle Animations
     animateCSS(modal, 'fadeIn').then((message) => {
@@ -293,15 +286,19 @@ function startNewGame() {
     closeModal('.newGameMenuModal');
 }
 
+// Helper code to only call truncateNavBarDeckName once the resize event has finished
+// Instead of repeatedly calling it the whole time the window is being resized.
 var resizeId;
 $(window).resize(function() {
     clearTimeout(resizeId);
     resizeId = setTimeout(truncateNavBarDeckName, 500);
 });
 
+// Fucntion to truncate the deck name string for the nav bar, based on screen width
 function truncateNavBarDeckName(){
+    padding = 15;
     // Update Navbar with Deck Name
-    navBarWidth = Math.floor(document.querySelector('.navbar').offsetWidth/10) - 10 ;
+    navBarWidth = Math.floor(document.querySelector('.navbar').offsetWidth/10) - padding ;
     deckNameString = previousGameSettings[1];
     if (deckNameString.length > navBarWidth) {
         deckNameString = deckNameString.substring(0, navBarWidth) + "...";
@@ -388,15 +385,6 @@ function generateEvent() {
     // Add box to column
     mainColumns.appendChild(eventColumn);
     
-    // Hide "No active events" card
-    //document.querySelector('.noActiveEvents').classList.add('is-hidden');
-
-    // Unhide column
-    //eventsColumn.classList.remove('is-hidden');
-    //eventsColumnSuper.classList.remove('is-hidden');
-
-    // Todo
-
 }
 
 function dismissEvent(eventID) {
@@ -408,8 +396,6 @@ function dismissEvent(eventID) {
         while (mainColumns.children.length > 1) {
             mainColumns.removeChild(mainColumns.lastChild);
         }
-        //mainColumns.classList.add('is-hidden');
-        //document.querySelector('.noActiveEvents').classList.add('is-hidden');
     }
     // Normal mode
     else {
@@ -418,9 +404,6 @@ function dismissEvent(eventID) {
         // Remove event from column
         mainColumns.removeChild(eventBox);
 
-        // Check if column has any more events, if not, unhide the "No active events" card
-        //if (eventsColumn.children.length == 1)
-        //    document.querySelector('.noActiveEvents').classList.remove('is-hidden');
     }
 }
 
@@ -436,7 +419,6 @@ function inputMenuButtonHelper (selector) {
         button.click()
         //console.log(selector + " button clicked")
     }
-
 }
 
 function unbindInputs () {
