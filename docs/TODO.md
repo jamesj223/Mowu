@@ -2,16 +2,23 @@
 
 ## Current Priorities
 
-- [x] Added deck name to nav bar - centred on mobile, and will truncate if too long
-- [x] Fixed footer behaviour once events go past bottom of page
-- [x] Added placeholder logo image for navbar brand
+- [ ] Show difficulty on Navbar
+- [ ] Ctrl + Arrows for change life 5 or 10 at a time
 - [ ] README - Screenshots
 
 ## Full feature backlog
 
-- [ ] Show difficulty on Navbar
-- [ ] Ctrl + Arrows for change life 5 or 10 at a time
+- [ ] Repeat for on screen button press
+- [ ] Change default starting health
+    - [ ] 40 is too low, can't differentiate deck strengths enough
+        - [ ] 60 - 20 damage x 3 players?
+        - [ ] 80 - 40 damage x 2 players?
+        - [ ] 90 - 30 damage x 3 players?
+        - [ ] 120 - 40 damage x 3 players
+            - [ ] Maybe too much? More aggro decks might run out of steam
 - [ ] Click on event to open zoomed in card image in a modal
+- [ ] Commander Damage tracking?
+- [ ] Poison tracking?
 - [ ] Menu (and navbar?)
     - [x] New game
         - [x] Starting health
@@ -23,9 +30,6 @@
     - [ ] View Stats
 - [x] Confirm before restarting when game in progress
     - [ ] Same but for exiting/closing the tab? Or too annoying
-- [ ] Repeat for on screen button press
-- [ ] Progressive key down repeat rate (start slowly, then progressively get faster)
-    - [ ] For on screen buttons as well
 - [ ] Local storage (IndexedDB?)
     - [ ] Or server side
     - [ ] Or cloud/accounts?
@@ -48,8 +52,11 @@
 
 ## Shelved for now
 
+- [ ] Make Deck name centered on desktop too
 - [ ] Animate navbar menu opening/closing
 - [ ] Expand/hide footer (and animate this too)
 - [ ] Compact tracker cards for mobile
     - [ ] Utilise "is-size-[X]-mobile" for Titles
     - [ ] Utilise "is-[SIZE] is-responsive" for Buttons
+- [ ] Progressive key down repeat rate (start slowly, then progressively get faster)
+    - [ ] For on screen buttons as well

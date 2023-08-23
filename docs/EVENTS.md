@@ -76,4 +76,5 @@ Nothing here yet
 - [ ] Other Events
     - [ ] Counter spells? How would that work? Just counter whatever the next spell player casts?
         - [ ] Maybe instead of counters, just cards that make opponents spells cost more. Like Defense Grid.
+        - [ ] Or cards that counter on random chance? coin flip, dice roll etc
 - [ ] Sub menu to toggle on/off specific events?
