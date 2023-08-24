@@ -3,11 +3,11 @@
 ## Current Priorities
 
 - [ ] Show difficulty on Navbar
-- [ ] Ctrl + Arrows for change life 5 or 10 at a time
 - [ ] README - Screenshots
 
 ## Full feature backlog
 
+- [ ] Ctrl + Arrows for change life 5 or 10 at a time
 - [ ] Repeat for on screen button press
 - [ ] Change default starting health
     - [ ] 40 is too low, can't differentiate deck strengths enough
@@ -16,9 +16,13 @@
         - [ ] 90 - 30 damage x 3 players?
         - [ ] 120 - 40 damage x 3 players
             - [ ] Maybe too much? More aggro decks might run out of steam
+    - [ ] Revisit this once events implemented? 
+    - [ ] Might want different values for each difficulty? 
 - [ ] Click on event to open zoomed in card image in a modal
-- [ ] Commander Damage tracking?
-- [ ] Poison tracking?
+- [ ] Additional counters/trackers - Toggle in menu, with hotkey, on screen button?
+    - [ ] Player Health
+    - [ ] Commander Damage
+    - [ ] Poison
 - [ ] Menu (and navbar?)
     - [x] New game
         - [x] Starting health

@@ -47,11 +47,17 @@ Nothing here yet
 
 Nothing here yet
 
-## Migrated from TODO
+## MISC/Migrated from TODO
 
+- [ ] For mana cost X events, base X off turn number?
+    - [ ] I.E a card costs XRR and it's turn 6, assume X=4
 - [ ] Get card images from Scryfall?
     - [ ] Cache them locally?
 - [ ] Weighted Probabilities for each category and for each event within that category
+    - [ ] Change probability or event pool based on # turns? 
+    - [ ] Have the events scale kind of. 
+    - [ ] Start small, single target removal, single creature summons etc
+    - [ ] The longer the game goes, summon larger creatures, cast single sided board wipes etc.
 - [ ] Basic Events - Events that don't require player health tracking
     - [ ] Board wipe (creatures, artifacts?)
         - [ ] Pick a random real board wipe card?

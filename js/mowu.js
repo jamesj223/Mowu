@@ -407,6 +407,10 @@ function dismissEvent(eventID) {
     }
 }
 
+function hadoken() {
+    console.log("Hadoken!");
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 //Keyboard Input
 
@@ -472,8 +476,9 @@ function bindInputs (mode) {
             Mousetrap.bind(['C','c', 'escape'], function() { confirmRestartGame('Cancel'); return false; }, 'keyup');
             break;
 
-
-    }   
+    };
+    
+    Mousetrap.bind('up up down down left right left right b a enter', function() { hadoken(); });
 
 }
 
