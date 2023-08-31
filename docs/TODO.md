@@ -2,8 +2,7 @@
 
 ## Current Priorities
 
-- Ctrl + Arrows for change life 5 or 10 at a time
-- Fixed bug with life delta colour classes not being removed appropriately 
+- Prevent zoom on mobile (double tap and pinch)
 
 ## Full feature backlog
 
