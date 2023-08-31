@@ -41,6 +41,16 @@ function changeLifeTracker(amount) {
     deltaHelper(amount);
 }
 
+function textColourHelper(textElement, colourClass) {
+    // Remove any existing colours
+    textElement.classList.remove('has-text-white');
+    textElement.classList.remove('has-text-success');
+    textElement.classList.remove('has-text-danger');
+    textElement.classList.remove('has-text-black');
+    // Add new colour
+    textElement.classList.add(colourClass);
+}
+
 function deltaHelper(amount) {
     //Clone the whole element to remove any previous animation/event listeners
     old_element = lifeDeltaElement;
@@ -57,23 +67,32 @@ function deltaHelper(amount) {
     lifeDeltaElement.innerHTML = deltraString(lifeDelta);
 
     // Set text colour
-    lifeDeltaElement.classList.remove('has-text-white');
+    //lifeDeltaElement.classList.remove('has-text-white');
     if (lifeDelta > 0){
-        lifeDeltaElement.classList.add('has-text-success');
+        //lifeDeltaElement.classList.add('has-text-success');
+        textColourHelper(lifeDeltaElement, 'has-text-success');
     } else if (lifeDelta < 0){
-        lifeDeltaElement.classList.add('has-text-danger');
+        //lifeDeltaElement.classList.add('has-text-danger');
+        textColourHelper(lifeDeltaElement, 'has-text-danger');
     } else {
-        lifeDeltaElement.classList.add('has-text-black');
+        //lifeDeltaElement.classList.add('has-text-black');
+        textColourHelper(lifeDeltaElement, 'has-text-black');
     }
 
     // Fade out over time,
     animateCSS(lifeDeltaElement, 'fadeOut').then((message) => {
         // After it has faded out, hide element and reset counters
         lifeDelta = 0;
-        lifeDeltaElement.classList.add('has-text-white');
-        lifeDeltaElement.classList.remove('has-text-success')
-        lifeDeltaElement.classList.remove('has-text-danger')
-        lifeDeltaElement.classList.remove('has-text-black')
+
+        // Old Colour Stuff
+        //lifeDeltaElement.classList.add('has-text-white');
+        //lifeDeltaElement.classList.remove('has-text-success');
+        //lifeDeltaElement.classList.remove('has-text-danger');
+        //lifeDeltaElement.classList.remove('has-text-black');
+
+        //New Colour Stuff
+        textColourHelper(lifeDeltaElement, 'has-text-white');
+
         // Animate Life Tracker to let user know delta has finished
         // Can't decide between flash or headShake
         lifeBoxElement = document.querySelector('.lifeBox')
@@ -441,8 +460,10 @@ function bindInputs (mode) {
         case "gameplay":
             
             // Life Tracker
-            Mousetrap.bind(["up","w", "+"], function() {changeLifeTracker(1)});
-            Mousetrap.bind(["down","s", "-"], function() {changeLifeTracker(-1)});
+            Mousetrap.bind(["up","w", "+"], function() { changeLifeTracker(1); return false; });
+            Mousetrap.bind(["ctrl+up","ctrl+w", "ctrl++"], function() { changeLifeTracker(10); return false; });
+            Mousetrap.bind(["down","s", "-"], function() { changeLifeTracker(-1); return false; });
+            Mousetrap.bind(["ctrl+down","ctrl+s", "ctrl+-"], function() { changeLifeTracker(-10); return false; });
 
             // Turn Counter
             Mousetrap.bind(["space","enter"], function() {changeTurnCounter(1); return false; }, 'keyup');

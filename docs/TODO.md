@@ -2,12 +2,13 @@
 
 ## Current Priorities
 
-- [ ] Show difficulty on Navbar
-- [ ] README - Screenshots
+- Ctrl + Arrows for change life 5 or 10 at a time
+- Fixed bug with life delta colour classes not being removed appropriately 
 
 ## Full feature backlog
 
-- [ ] Ctrl + Arrows for change life 5 or 10 at a time
+- [ ] Show difficulty on Navbar
+- [ ] README - Screenshots
 - [ ] Repeat for on screen button press
 - [ ] Change default starting health
     - [ ] 40 is too low, can't differentiate deck strengths enough
@@ -15,7 +16,7 @@
         - [ ] 80 - 40 damage x 2 players?
         - [ ] 90 - 30 damage x 3 players?
         - [ ] 120 - 40 damage x 3 players
-            - [ ] Maybe too much? More aggro decks might run out of steam
+            - [ ] Too much? More aggressive decks might run out of steam
     - [ ] Revisit this once events implemented? 
     - [ ] Might want different values for each difficulty? 
 - [ ] Click on event to open zoomed in card image in a modal
@@ -42,7 +43,7 @@
     - [ ] Select from dropdown for previously used
     - [x] Pre Populate with most recently used? Maybe only for multiple games in the same session?
     - [ ] or add new
-- [ ] Store game results (deck name, number of turns, difficulty etc)
+- [ ] Store game results (deck name, starting health, number of turns, difficulty etc)
 - [ ] Display stats for stored decks
     - [ ] Easy/medium/hard/custom
     - [ ] Export (csv?)
@@ -64,3 +65,8 @@
     - [ ] Utilise "is-[SIZE] is-responsive" for Buttons
 - [ ] Progressive key down repeat rate (start slowly, then progressively get faster)
     - [ ] For on screen buttons as well
+
+## Known Bugs
+
+- Key repeat rate for up and down arrows are different for some reason?
+- Default behaviour intermittently happening for arrow keys (page scrolling up/down). Mousetrap is meant to be preventing that.
