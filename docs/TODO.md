@@ -1,23 +1,26 @@
 # To Do
 
-## Current Priorities
+## Done
 
+---
+
+## In Progress
+
+---
+
+## High Priority
+
+- Change default starting health to 120. 40 wasn't enough to differentiate between different strength decks, without events. May revisit this once events are implemented.
 - Prevent zoom on mobile (double tap and pinch)
 
-## Full feature backlog
+---
 
-- [ ] Show difficulty on Navbar
+## Backlog
+
+- [ ] Show Health and Turn Count on Navbar
+  - [ ] H: 40 T: 1
 - [ ] README - Screenshots
-- [ ] Repeat for on screen button press
-- [ ] Change default starting health
-    - [ ] 40 is too low, can't differentiate deck strengths enough
-        - [ ] 60 - 20 damage x 3 players?
-        - [ ] 80 - 40 damage x 2 players?
-        - [ ] 90 - 30 damage x 3 players?
-        - [ ] 120 - 40 damage x 3 players
-            - [ ] Too much? More aggressive decks might run out of steam
-    - [ ] Revisit this once events implemented? 
-    - [ ] Might want different values for each difficulty? 
+- [ ] Repeat for on screen button press/hold
 - [ ] Click on event to open zoomed in card image in a modal
 - [ ] Additional counters/trackers - Toggle in menu, with hotkey, on screen button?
     - [ ] Player Health
@@ -64,8 +67,9 @@
     - [ ] Utilise "is-[SIZE] is-responsive" for Buttons
 - [ ] Progressive key down repeat rate (start slowly, then progressively get faster)
     - [ ] For on screen buttons as well
+- [ ] Show difficulty on Navbar
 
 ## Known Bugs
 
-- Key repeat rate for up and down arrows are different for some reason?
+- Key repeat rate for up and down arrows is different for some reason?
 - Default behaviour intermittently happening for arrow keys (page scrolling up/down). Mousetrap is meant to be preventing that.
