@@ -38,6 +38,13 @@ At the moment I'm think I can group events into two main categories.
 - "Counter Spells"
     - Probably can't implement actual counter spells, but disruption that makes spells cost more for example might be possible.
     - Defense Grid for example.
+- Other
+    - Bottomless Pit
+    - Necrogen Mists
+- Commander hate?
+    - Commanders cost 2 more
+    - Disable commander active/passives?
+    - Commanders get -X/-X?
 
 ## Implemented
 
